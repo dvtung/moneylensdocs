@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Data Security - MoneyLens</title>
+    <style>
+        :root {
+            --primary-color: #0A6B5C;
+            --primary-light: #E6F4F1;
+            --text-main: #1C2826;
+            --text-muted: #5C6B68;
+            --bg-body: #F4F7F6;
+            --bg-card: #FFFFFF;
+            --border-color: #E2E8E6;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-color: #38B2AC;
+                --primary-light: #1A3636;
+                --text-main: #E6EDEC;
+                --text-muted: #A0AEC0;
+                --bg-body: #0F1716;
+                --bg-card: #182221;
+                --border-color: #2D3748;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px 16px 60px 16px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 40px 32px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .lang-switcher {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .lang-btn {
+            background: var(--primary-light);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--primary-color);
+            color: #FFFFFF;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+        }
+
+        .app-logo {
+            font-size: 48px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header .meta {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .badge-local {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--primary-light);
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 13px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-top: 12px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        p, li {
+            font-size: 15px;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary-color);
+            padding: 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        th, td {
+            padding: 12px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .contact-card {
+            background: var(--primary-light);
+            border: 1px dashed var(--primary-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .contact-card a {
+            color: var(--primary-color);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="lang-switcher">
+        <button id="btn-vi" class="lang-btn active" onclick="switchLanguage('vi')">🇻🇳 Tiếng Việt</button>
+        <button id="btn-en" class="lang-btn" onclick="switchLanguage('en')">🇬🇧 English</button>
+    </div>
+
+    <!-- VIETNAMESE CONTENT -->
+    <div id="content-vi" class="lang-content active">
+        <div class="header">
+            <div class="app-logo">🔍</div>
+            <h1>Chính Sách Quyền Riêng Tư & Bảo Mật Dữ Liệu</h1>
+            <div class="meta">Ứng dụng: MoneyLens (Android) &bull; Hiệu lực: 30/03/2026</div>
+            <div class="badge-local">🔒 Bảo Mật On-Device 100% &bull; Local-First</div>
+        </div>
+
+        <div class="highlight-box">
+            <strong>Tóm tắt cam kết bảo mật:</strong> MoneyLens xử lý và lưu trữ 100% dữ liệu tài chính cục bộ trên bộ nhớ điện thoại của bạn. Chúng tôi KHÔNG thu thập, KHÔNG lưu trên máy chủ trung gian và KHÔNG chia sẻ dữ liệu thu chi với bất kỳ bên thứ ba nào.
+        </div>
+
+        <h2>1. Nguyên Tắc Bảo Mật Local-First (On-Device Processing)</h2>
+        <p>MoneyLens được xây dựng với mục tiêu tôn trọng tuyệt đối quyền riêng tư tài chính cá nhân:</p>
+        <ul>
+            <li><strong>Không có Server ngoài:</strong> Toàn bộ nhật ký thu chi, số dư tài khoản ngân hàng, hạn mức thẻ tín dụng, danh mục đầu tư (Cổ phiếu, Quỹ, Crypto, Vàng, BĐS) và khoản nợ được lưu trữ mã hóa hoàn toàn trong cơ sở dữ liệu Room SQLite trên thiết bị của bạn.</li>
+            <li><strong>Không theo dõi thương mại:</strong> Chúng tôi không thu thập thông tin định danh cá nhân, không theo dõi hành vi mua sắm và không bán dữ liệu cho bên thứ ba.</li>
+        </ul>
+
+        <h2>2. Dịch Vụ Tự Động Nhận Diện Thông Báo Ngân Hàng</h2>
+        <p>MoneyLens cung cấp tính năng tự động ghi nhận giao dịch thông qua dịch vụ <code>NotificationListenerService</code> của Android:</p>
+        <ul>
+            <li><strong>Phạm vi lọc thông báo:</strong> Dịch vụ chỉ phân tích văn bản từ ứng dụng ngân hàng và ví điện tử được hỗ trợ tại Việt Nam (VCB, Techcombank, MB, VPBank, BIDV, ACB, MoMo, ZaloPay...). Bỏ qua 100% thông báo tin nhắn riêng tư.</li>
+            <li><strong>Xử lý tại thiết bị:</strong> Thuật toán bóc tách số tiền, loại giao dịch và 4 số cuối tài khoản được thực thi tức thì tại điện thoại.</li>
+            <li><strong>An toàn tuyệt đối:</strong> Tuyệt đối KHÔNG đọc mã OTP, mật khẩu hay mã xác thực ngân hàng. Văn bản thông báo KHÔNG BAO GIỜ được gửi ra môi trường Internet.</li>
+        </ul>
+
+        <h2>3. Bảo Mật Mã PIN & Sinh Trắc Học</h2>
+        <ul>
+            <li><strong>Sinh trắc học (Vân tay/Khuôn mặt):</strong> Sử dụng trực tiếp Android BiometricPrompt API kết hợp phần cứng bảo mật Secure Element của điện thoại. MoneyLens không tiếp cận dữ liệu sinh trắc học của bạn.</li>
+            <li><strong>Mã PIN 6 số:</strong> Mã PIN được băm mã hóa theo chuẩn SHA-256 kèm Salt bảo mật và lưu trữ trong bộ nhớ mã hóa SharedPreferences riêng tư của ứng dụng.</li>
+        </ul>
+
+        <h2>4. Quyền Hạn Hệ Thống Yêu Cầu</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Quyền hạn</th>
+                    <th>Mục đích sử dụng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>POST_NOTIFICATIONS</code></td>
+                    <td>Hiển thị thông báo nhắc nợ thẻ tín dụng, cảnh báo ngân sách và thông báo duyệt nhanh giao dịch.</td>
+                </tr>
+                <tr>
+                    <td><code>BIND_NOTIFICATION_LISTENER_SERVICE</code></td>
+                    <td>Lắng nghe thông báo số dư ngân hàng để tự động bóc tách thu chi cục bộ.</td>
+                </tr>
+                <tr>
+                    <td><code>USE_BIOMETRIC</code></td>
+                    <td>Mở khóa ứng dụng bằng vân tay / khuôn mặt.</td>
+                </tr>
+                <tr>
+                    <td><code>INTERNET</code></td>
+                    <td>Chỉ dùng để lấy giá thị trường công khai (Crypto, Cổ phiếu, Quỹ mở). Yêu cầu chỉ đọc (Read-Only), không đính kèm dữ liệu cá nhân.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>5. Quyền Kiểm Soát & Xóa Dữ Liệu Của Người Dùng</h2>
+        <ul>
+            <li><strong>Xuất/Nhập sao lưu:</strong> Bạn có thể chủ động xuất file sao lưu <code>.json</code> để lưu trữ cá nhân hoặc chuyển sang máy mới.</li>
+            <li><strong>Xóa sạch dữ liệu:</strong> Bạn có thể chọn <em>Cài đặt &rarr; Xóa toàn bộ dữ liệu</em> để dọn sạch cơ sở dữ liệu trên máy.</li>
+            <li><strong>Khi gỡ ứng dụng:</strong> Hệ điều hành Android sẽ tự động xóa sạch vĩnh viễn toàn bộ cơ sở dữ liệu local của MoneyLens khỏi thiết bị.</li>
+        </ul>
+
+        <h2>6. Quyền Riêng Tư Của Trẻ Em</h2>
+        <p>MoneyLens dành cho người dùng từ 18 tuổi trở lên. Chúng tôi không chủ động thu thập thông tin từ trẻ em dưới 13 tuổi.</p>
+
+        <div class="contact-card">
+            <h3>Liên Hệ Nhà Phát Triển</h3>
+            <p>Nếu bạn có bất kỳ thắc mắc nào về Chính sách bảo mật, xin vui lòng liên hệ:</p>
+            <p><strong>Nhà phát triển:</strong> Dong Van Tung</p>
+            <p><strong>Email:</strong> <a href="mailto:vantung.dong@gmail.com">vantung.dong@gmail.com</a></p>
+        </div>
+    </div>
+
+    <!-- ENGLISH CONTENT -->
+    <div id="content-en" class="lang-content">
+        <div class="header">
+            <div class="app-logo">🔍</div>
+            <h1>Privacy Policy &amp; Data Security</h1>
+            <div class="meta">App: MoneyLens (Android) &bull; Effective Date: March 30, 2026</div>
+            <div class="badge-local">🔒 100% On-Device Security &bull; Local-First</div>
+        </div>
+
+        <div class="highlight-box">
+            <strong>Privacy Commitment Summary:</strong> MoneyLens processes and stores 100% of your financial data locally on your phone's private storage. We DO NOT collect, DO NOT store on external servers, and DO NOT share your financial records with any third party.
+        </div>
+
+        <h2>1. Local-First Security Principle (On-Device Processing)</h2>
+        <p>MoneyLens is designed to respect your absolute financial privacy:</p>
+        <ul>
+            <li><strong>No Cloud Servers:</strong> All transaction logs, bank account balances, credit card limits, investment portfolios (Stocks, Funds, Crypto, Gold, Real Estate), and loans are stored fully encrypted in a local Room SQLite database on your device.</li>
+            <li><strong>No Commercial Tracking:</strong> We do not collect personal identifiers, track purchasing behavior, or sell data to advertisers or third parties.</li>
+        </ul>
+
+        <h2>2. Automatic Bank Notification Reader Service</h2>
+        <p>MoneyLens provides automated transaction detection via Android's <code>NotificationListenerService</code>:</p>
+        <ul>
+            <li><strong>Filter Scope:</strong> The service strictly filters notification text from supported banking and e-wallet apps in Vietnam (VCB, Techcombank, MB, VPBank, BIDV, ACB, MoMo, ZaloPay...). All personal messages are 100% ignored.</li>
+            <li><strong>On-Device Processing:</strong> Parsing algorithms for amounts, transaction types, and account digits execute instantly on your local device.</li>
+            <li><strong>Absolute Safety:</strong> NEVER reads OTP codes, passwords, or banking security credentials. Notification texts are NEVER transmitted over the Internet.</li>
+        </ul>
+
+        <h2>3. PIN Code &amp; Biometric Security</h2>
+        <ul>
+            <li><strong>Biometric Authentication (Fingerprint/Face):</strong> Utilizes Android's official BiometricPrompt API backed by the phone's hardware Secure Element. MoneyLens never accesses or stores your raw biometric data.</li>
+            <li><strong>6-Digit PIN:</strong> User PINs are hashed using SHA-256 with a secure salt and stored locally in encrypted SharedPreferences.</li>
+        </ul>
+
+        <h2>4. Required System Permissions</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Permission</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>POST_NOTIFICATIONS</code></td>
+                    <td>Displays credit card due reminders, budget warning alerts, and quick transaction confirmation trays.</td>
+                </tr>
+                <tr>
+                    <td><code>BIND_NOTIFICATION_LISTENER_SERVICE</code></td>
+                    <td>Listens to banking notification alerts to auto-detect transaction records locally.</td>
+                </tr>
+                <tr>
+                    <td><code>USE_BIOMETRIC</code></td>
+                    <td>Authenticates user via fingerprint or face unlock.</td>
+                </tr>
+                <tr>
+                    <td><code>INTERNET</code></td>
+                    <td>Used strictly for read-only public market price fetching (Crypto, Stocks, Funds) without attaching personal data payloads.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>5. User Control &amp; Data Deletion Rights</h2>
+        <ul>
+            <li><strong>Backup &amp; Restore:</strong> You can export encrypted JSON backups for personal storage or migration to a new device.</li>
+            <li><strong>Permanent Erasure:</strong> You can select <em>Settings &rarr; Clear All Data</em> to permanently wipe the database from your device.</li>
+            <li><strong>App Uninstallation:</strong> Uninstalling MoneyLens automatically removes all local database files from your device via the Android OS.</li>
+        </ul>
+
+        <h2>6. Children's Privacy</h2>
+        <p>MoneyLens is intended for users aged 18 and older. We do not knowingly collect personal data from children under 13.</p>
+
+        <div class="contact-card">
+            <h3>Developer Contact</h3>
+            <p>If you have any questions regarding this Privacy Policy, please contact:</p>
+            <p><strong>Developer:</strong> Dong Van Tung</p>
+            <p><strong>Email:</strong> <a href="mailto:vantung.dong@gmail.com">vantung.dong@gmail.com</a></p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 MoneyLens. All rights reserved.
+    </footer>
+</div>
+
+<script>
+    function switchLanguage(lang) {
+        document.getElementById('content-vi').classList.remove('active');
+        document.getElementById('content-en').classList.remove('active');
+        document.getElementById('btn-vi').classList.remove('active');
+        document.getElementById('btn-en').classList.remove('active');
+
+        if (lang === 'en') {
+            document.getElementById('content-en').classList.add('active');
+            document.getElementById('btn-en').classList.add('active');
+            document.documentElement.lang = 'en';
+        } else {
+            document.getElementById('content-vi').classList.add('active');
+            document.getElementById('btn-vi').classList.add('active');
+            document.documentElement.lang = 'vi';
+        }
+    }
+</script>
+
+</body>
+</html>
