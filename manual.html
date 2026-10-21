@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyLens - Hướng dẫn sử dụng / User Manual</title>
+    <style>
+        :root {
+            --primary: #0A6B5C;
+            --primary-light: #E8F5E9;
+            --primary-dark: #004D40;
+            --accent: #1565C0;
+            --expense: #E53935;
+            --income: #2E7D32;
+            --bg-light: #F8FAF9;
+            --surface: #FFFFFF;
+            --text-dark: #1C1B1F;
+            --text-muted: #5A6065;
+            --border: #E2E8F0;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Top Header Sticky Nav */
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .brand-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .version-badge {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 4px;
+            cursor: pointer;
+        }
+
+        .lang-btn {
+            padding: 6px 14px;
+            border-radius: 16px;
+            border: none;
+            background: transparent;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 6px rgba(10, 107, 92, 0.3);
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            position: sticky;
+            top: 5rem;
+            height: calc(100vh - 6rem);
+            overflow-y: auto;
+            background: var(--surface);
+            padding: 1.25rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 8px 12px;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        /* Content Main Panel */
+        .content {
+            background: var(--surface);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 6rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 0.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-top: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #334155;
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* Callout Box */
+        .callout {
+            background: #F0FDF4;
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.2rem 0;
+        }
+
+        .callout-title {
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .callout-warning {
+            background: #FFFBEB;
+            border-left-color: #F59E0B;
+        }
+
+        .callout-warning .callout-title {
+            color: #B45309;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .badge-expense { background: #FFEBEE; color: var(--expense); }
+        .badge-income { background: #E8F5E9; color: var(--income); }
+        .badge-accent { background: #E3F2FD; color: var(--accent); }
+
+        /* Feature Card Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .card {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Hide elements according to language */
+        .lang-en {
+            display: none;
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 868px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                display: none;
+            }
+            .content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="brand">
+            <div class="brand-icon">M</div>
+            <div>
+                <span class="brand-title">MoneyLens</span>
+                <span class="version-badge">v1.0.4</span>
+            </div>
+        </div>
+
+        <!-- Bilingual Toggle -->
+        <div class="lang-switch">
+            <button class="lang-btn active" id="btn-vi" onclick="setLanguage('vi')">🇻🇳 Tiếng Việt</button>
+            <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">🇬🇧 English</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar Table of Contents -->
+        <nav class="sidebar">
+            <h3 class="lang-vi">Mục Lục Hướng Dẫn</h3>
+            <h3 class="lang-en">Manual Contents</h3>
+            <ul>
+                <li><a href="#intro" class="active">1. <span class="lang-vi">Giới thiệu & Khởi tạo</span><span class="lang-en">Introduction & Onboarding</span></a></li>
+                <li><a href="#tab-overview">2. <span class="lang-vi">Tổng quan Tài sản Ròng</span><span class="lang-en">Net Worth Overview</span></a></li>
+                <li><a href="#tab-transactions">3. <span class="lang-vi">Quản lý Giao dịch & Thu chi</span><span class="lang-en">Transactions Management</span></a></li>
+                <li><a href="#tab-credit">4. <span class="lang-vi">Tín dụng & Công nợ</span><span class="lang-en">Credit & Debt Management</span></a></li>
+                <li><a href="#tab-portfolio">5. <span class="lang-vi">Tích sản & Đầu tư</span><span class="lang-en">Investment Portfolio</span></a></li>
+                <li><a href="#tab-budget">6. <span class="lang-vi">Ngân sách & Cảnh báo</span><span class="lang-en">Budgets & Alerts</span></a></li>
+                <li><a href="#automation">7. <span class="lang-vi">Đọc thông báo Tự động 100%</span><span class="lang-en">100% Offline Notification Engine</span></a></li>
+                <li><a href="#settings">8. <span class="lang-vi">Cài đặt & Bảo mật</span><span class="lang-en">Settings & Security</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Guide Content -->
+        <main class="content">
+
+            <!-- SECTION 1: INTRODUCTION & ONBOARDING -->
+            <section id="intro">
+                <!-- VIETNAMESE -->
+                <div class="lang-vi">
+                    <h1>1. Giới thiệu & Khởi tạo Ứng dụng</h1>
+                    <p><strong>MoneyLens</strong> là ứng dụng quản lý tài chính cá nhân toàn diện, hoạt động <strong>Offline 100% (Local-First)</strong> giúp bảo vệ quyền riêng tư tuyệt đối cho dữ liệu tài chính của bạn. Ứng dụng tích hợp quản lý Tài sản ròng (Net Worth), Thẻ tín dụng, Khoản vay/Trả góp, Tích sản đầu tư và Tự động đọc thông báo biến động số dư ngân hàng.</p>
+
+                    <h2>Màn hình Chào mừng (Onboarding Dialog)</h2>
+                    <p>Khi bạn mở MoneyLens lần đầu tiên, ứng dụng sẽ hiển thị Popup thiết lập nhanh:</p>
+                    <ul>
+                        <li><strong>Chế độ dữ liệu ban đầu:</strong>
+                            <ul>
+                                <li><span class="badge badge-accent">🆕 Bắt đầu mới (Mặc định)</span>: Tạo sổ thu chi hoàn toàn trống sạch để bạn bắt đầu ghi chép thực tế từ 0.</li>
+                                <li><span class="badge badge-income">🚀 Dữ liệu mẫu</span>: Nạp sẵn 10 giao dịch mẫu, 2 thẻ tín dụng và 4 tài sản đầu tư để bạn trải nghiệm ngay tính năng.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Thông tin cá nhân:</strong> Nhập tên/biệt danh và chọn biểu tượng Đại diện Emoji (💼, 🪙, 📊, 🌟, 🚀).</li>
+                        <li><strong>Bảo mật ban đầu:</strong> Tùy chọn thiết lập Mã PIN 6 chữ số và bật mở khóa bằng Vân tay / Khuôn mặt (Biometric).</li>
+                    </ul>
+
+                    <div class="callout">
+                        <div class="callout-title">💡 Mẹo nhỏ</div>
+                        <p>Nếu nhập mã PIN 6 số, khi bạn gõ xong số thứ 6 ở ô đầu tiên, ứng dụng sẽ <strong>tự động nhảy tiêu điểm</strong> xuống ô xác nhận và tự động thu gọn bàn phím khi hoàn tất!</p>
+                    </div>
+                </div>
+
+                <!-- ENGLISH -->
+                <div class="lang-en">
+                    <h1>1. Introduction & Initial Setup</h1>
+                    <p><strong>MoneyLens</strong> is a comprehensive, <strong>100% Offline (Local-First)</strong> personal finance manager that respects your privacy. It provides integrated tracking for Net Worth, Credit Cards, Loans & Installments, Investment Assets, and 100% offline Bank SMS/Notification recognition.</p>
+
+                    <h2>Welcome Onboarding Screen</h2>
+                    <p>When launching MoneyLens for the first time, you will be welcomed by a setup dialog:</p>
+                    <ul>
+                        <li><strong>Initial Data Mode:</strong>
+                            <ul>
+                                <li><span class="badge badge-accent">🆕 Clean Start (Default)</span>: Creates a fresh, empty ledger for recording real transactions from scratch.</li>
+                                <li><span class="badge badge-income">🚀 Demo Data</span>: Preloads 10 sample transactions, 2 credit cards, and 4 assets to explore features instantly.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Profile Info:</strong> Enter your display name/nickname and select an Avatar Emoji (💼, 🪙, 📊, 🌟, 🚀).</li>
+                        <li><strong>Initial Security:</strong> Optionally configure a 6-digit PIN code and enable Fingerprint / Face Unlock (Biometrics).</li>
+                    </ul>
+
+                    <div class="callout">
+                        <div class="callout-title">💡 Pro Tip</div>
+                        <p>When entering a 6-digit PIN, typing the 6th digit automatically moves focus to the Confirmation field and dismisses the keyboard upon completion!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: NET WORTH & DASHBOARD -->
+            <section id="tab-overview">
+                <!-- VIETNAMESE -->
+                <div class="lang-vi">
+                    <h1>2. Tab Tổng Quan & Tài Sản Ròng (Dashboard)</h1>
+                    <p>Đây là trung tâm điều hành tài chính cá nhân của bạn, giúp bạn nắm bắt ngay lập tức sức khỏe tài chính trong 3 giây.</p>
+
+                    <div class="grid">
+                        <div class="card">
+                            <div class="card-title">🛡️ Thẻ Tài Sản Ròng (Net Worth)</div>
+                            <p>Hiển thị tổng số dư bằng công thức: <code>Tài sản ròng = Tổng Tài Sản - Tổng Nợ</code>. Bạn có thể nhấn vào biểu tượng <strong>Con mắt 👁️</strong> để ẩn/hiện số tiền linh hoạt khi ở nơi công cộng.</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">📊 Dòng Tiền & Ngân Sách Tháng</div>
+                            <p>Theo dõi tổng <span class="badge badge-income">Thu nhập</span>, <span class="badge badge-expense">Chi tiêu</span> thực tế trong tháng và thanh tiến trình Ngân sách tiêu dùng còn lại.</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">📈 Biểu Đồ Trực Quan</div>
+                            <p>Bao gồm Biểu đồ cột Thu Chi theo từng tháng, Biểu đồ tròn Phân bổ chi tiêu theo danh mục, và Biểu đồ đường Lịch sử biến động Tài sản ròng theo thời gian.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ENGLISH -->
+                <div class="lang-en">
+                    <h1>2. Tab 1: Net Worth & Dashboard</h1>
+                    <p>Your personal finance control center, providing an instant 3-second overview of your overall financial health.</p>
+
+                    <div class="grid">
+                        <div class="card">
+                            <div class="card-title">🛡️ Net Worth Summary Card</div>
+                            <p>Calculates total wealth: <code>Net Worth = Total Assets - Total Liabilities</code>. Tap the <strong>Eye icon 👁️</strong> to mask/unmask sensitive figures when in public.</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">📊 Monthly Cash Flow</div>
+                            <p>Tracks <span class="badge badge-income">Total Income</span>, <span class="badge badge-expense">Total Living Expenses</span> for the current month, and remaining budget progress bars.</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">📈 Visual Analytics</div>
+                            <p>Includes Monthly Income vs Expense Bar Charts, Category Expense Allocation Pie Charts, and Net Worth Historical Trend Lines over time.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: TRANSACTIONS MANAGEMENT -->
+            <section id="tab-transactions">
+                <!-- VIETNAMESE -->
+                <div class="lang-vi">
+                    <h1>3. Tab Giao Dịch & Quản Lý Thu Chi</h1>
+                    <p>Nơi theo dõi chi tiết từng dòng tiền vào/ra và ghi chép nhanh chóng.</p>
+
+                    <h2>Thêm Giao Dịch Nhanh (Nút Floating `+`)</h2>
+                    <ul>
+                        <li><span class="badge badge-expense">Chi tiêu (-)</span>: Chọn số tiền, danh mục chi (Ăn uống, Giáo dục, Giải trí...) và chọn Nguồn chi từ <strong>Tài khoản chính</strong>, Ví MoMo/ZaloPay, Tiền mặt hoặc <strong>Thẻ Credit</strong>.</li>
+                        <li><span class="badge badge-income">Thu nhập (+)</span>: Nhập số tiền thu nhập và chọn Đích nhận tiền từ Tài khoản ngân hàng, Ví điện tử hoặc <strong>Thẻ Credit</strong>.</li>
+                    </ul>
+
+                    <div class="callout">
+                        <div class="callout-title">🌟 Kế toán Thẻ Credit thông minh (Khoản Thu vào Thẻ Credit)</div>
+                        <p>Khi bạn nhận khoản Thu (+) vào Thẻ Credit (khi nộp trả nợ thẻ hoặc nhận hoàn tiền từ ngân hàng): Giao dịch này <strong>chỉ thực hiện GIẢM DƯ NỢ của Thẻ Credit</strong>, đồng thời <strong>KHÔNG tính vào Tổng Thu Nhập Tháng</strong> và <strong>KHÔNG tính vào Tài Sản Ròng</strong> để tránh làm phồng ảo doanh thu!</p>
+                    </div>
+
+                    <h2>Tính năng Nâng cao trên Danh sách Giao dịch</h2>
+                    <ul>
+                        <li><strong>Tìm kiếm & Lọc:</strong> Gõ từ khóa tìm kiếm (bấm phím Search trên bàn phím để thu gọn ngay) hoặc lọc theo loại giao dịch (Chi tiêu, Thu nhập, Chờ duyệt).</li>
+                        <li><strong>Chọn nhiều (Batch Select):</strong> Nhấn giữ vào giao dịch để bật chế độ chọn hàng loạt $\rightarrow$ Xác nhận hoặc Xóa nhiều giao dịch cùng lúc.</li>
+                    </ul>
+                </div>
+
+                <!-- ENGLISH -->
+                <div class="lang-en">
+                    <h1>3. Tab 2: Transactions & Expense Manager</h1>
+                    <p>Detailed tracking and rapid logging for all cash inflows and outflows.</p>
+
+                    <h2>Quick Add Transaction (`+` Button)</h2>
+                    <ul>
+                        <li><span class="badge badge-expense">Expense (-)</span>: Enter amount, select category (Food, Education, Entertainment...) and source from <strong>Main Account</strong>, E-Wallets, Cash, or <strong>Credit Cards</strong>.</li>
+                        <li><span class="badge badge-income">Income (+)</span>: Enter amount and select receiving destination from Bank Accounts, E-Wallets, or <strong>Credit Cards</strong>.</li>
+                    </ul>
+
+                    <div class="callout">
+                        <div class="callout-title">🌟 Smart Credit Accounting (Income into Credit Card)</div>
+                        <p>When logging Income (+) directly into a Credit Card (refunds or debt payments): The app <strong>reduces the Credit Card's Owed Balance</strong> and <strong>EXCLUDES it from Monthly Income & Net Worth gain</strong> to prevent double-counting revenue!</p>
+                    </div>
+
+                    <h2>Advanced List Features</h2>
+                    <ul>
+                        <li><strong>Search & Filter:</strong> Type keywords (pressing Search on soft keyboard auto-dismisses it) or filter by type (Expense, Income, Pending).</li>
+                        <li><strong>Batch Selection:</strong> Long-press any item to enter multi-select mode $\rightarrow$ Batch confirm or delete multiple transactions at once.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 4: CREDIT & DEBT MANAGEMENT -->
+            <section id="tab-credit">
+                <!-- VIETNAMESE -->
+                <div class="lang-vi">
+                    <h1>4. Tab Tín Dụng & Công Nợ</h1>
+                    <p>Quản lý toàn bộ danh sách Thẻ tín dụng, Tài khoản thanh toán, Ví điện tử và các Khoản vay/Cho vay/Trả góp.</p>
+
+                    <h2>Danh sách Tài khoản & Thẻ (Tab 1)</h2>
+                    <ul>
+                        <li>📌 <strong>Tài khoản chính (STK: `****`)</strong>: Được sắp xếp ưu tiên ở **Vị trí đầu tiên (Index 0)** để bạn quản lý số dư ngân hàng chính.</li>
+                        <li>💳 <strong>Thẻ Credit</strong>: Theo dõi Hạn mức khả dụng, Dư nợ hiện tại, Ngày sao kê (1-31) và Số ngày miễn lãi. Cảnh báo thông minh khi thẻ sắp đến hạn thanh toán.</li>
+                        <li>📱 <strong>Ví điện tử & Thẻ Debit</strong>: Quản lý số dư MoMo, ZaloPay, ViettelMoney...</li>
+                    </ul>
+
+                    <div class="callout callout-warning">
+                        <div class="callout-title">💡 Hướng dẫn nhập nhiều Số thẻ / STK (CSV)</div>
+                        <p>Khi thêm hoặc sửa thẻ/tài khoản, ô <em>"4 số cuối thẻ / TK / Ví"</em> cho phép bạn nhập nhiều số phân tách bởi dấu phẩy <code>,</code> (Ví dụ: <code>8888, 9999, ****</code>). Ký tự wildcard <code>****</code> đại diện cho tài khoản chính mặc định.</p>
+                    </div>
+
+                    <h2>Khoản Đi Vay / Mua Trả Góp & Cho Vay (Tab 2 & 3)</h2>
+                    <p>Theo dõi các khoản nợ đi vay, mua hàng trả góp qua thẻ tín dụng và các khoản tiền cho bạn bè/người thân vay. Hỗ trợ bấm <strong>"Thanh toán nợ"</strong> để tự động trừ/cộng số dư tài khoản tương ứng.</p>
+                </div>
+
+                <!-- ENGLISH -->
+                <div class="lang-en">
+                    <h1>4. Tab 3: Credit Cards, Loans & Debts</h1>
+                    <p>Manage all Credit Cards, Bank Accounts, E-Wallets, Loans, Lending receivables, and Installments.</p>
+
+                    <h2>Accounts & Cards List (Tab 1)</h2>
+                    <ul>
+                        <li>📌 <strong>Main Account (Account: `****`)</strong>: Prioritized at <strong>Index 0</strong> for primary bank balance management.</li>
+                        <li>💳 <strong>Credit Cards</strong>: Track Available Limit, Current Owed Balance, Statement Day (1-31), and Interest-Free Grace Period. Smart focus ring alerts when payments are due soon.</li>
+                        <li>📱 <strong>E-Wallets & Debit Cards</strong>: Manage MoMo, ZaloPay, ViettelMoney balances.</li>
+                    </ul>
+
+                    <div class="callout callout-warning">
+                        <div class="callout-title">💡 Multi-Number CSV Guidance</div>
+                        <p>When adding or editing cards/accounts, the <em>"4 digits / Card / Account"</em> field allows comma-separated numbers (e.g., <code>8888, 9999, ****</code>). The wildcard <code>****</code> matches the default main account.</p>
+                    </div>
+
+                    <h2>Borrowing / Installments & Lending (Tab 2 & 3)</h2>
+                    <p>Track loans, credit card installment conversions, and receivables from friends. Tap <strong>"Pay Loan"</strong> to log repayments and automatically update underlying account balances.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5: WEALTH & INVESTMENT PORTFOLIO -->
+            <section id="tab-portfolio">
+                <!-- VIETNAMESE -->
+                <div class="lang-vi">
+                    <h1>5. Tab Tích Sản & Danh Mục Đầu Tư</h1>
+                    <p>Theo dõi danh mục tài sản đầu tư đa dạng bao gồm: Bất động sản, Vàng (SJC/PNJ), Chứng khoán, Tiền điện tử (Crypto) và Tiền gửi tiết kiệm.</p>
+
+                    <ul>
+                        <li><strong>Tự động cập nhật giá thị trường:</strong> Nhấn nút Cập nhật giá để refresh giá vàng, chứng khoán và crypto thực tế.</li>
+                        <li><strong>Cấu hình Thuế & Phí:</strong> Cấu hình thuế thu nhập đầu tư và biểu phí giao dịch quỹ giúp tính toán Giá trị thanh lý thực tế (Net Liquidation Value).</li>
+                    </ul>
+                </div>
+
+                <!-- ENGLISH -->
+                <div class="lang-en">
+                    <h1>5. Tab 4: Wealth & Investment Portfolio</h1>
+                    <p>Monitor multi-asset investments including Real Estate, Gold, Stocks/Securities, Crypto, and Fixed Deposits.</p>
+
+                    <ul>
+                        <li><strong>Market Price Refresh:</strong> Tap Refresh Prices to fetch current market rates for gold, stocks, and crypto.</li>
+                        <li><strong>Tax & Fee Schedules:</strong> Configure investment taxes and fund schedules to compute true Net Real Liquidation Value.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 6: BUDGETS & ALERTS -->
+            <section id="tab-budget">
+                <!-- VIETNAMESE -->
+                <div class="lang-vi">
+                    <h1>6. Tab Ngân Sách & Cảnh Báo Chi Tiêu</h1>
+                    <p>Thiết lập hạn mức chi tiêu theo tháng cho từng danh mục (Ăn uống, Giải trí, Mua sắm...). Hệ thống sẽ tự động phát thông báo cảnh báo khi chi tiêu vượt quá <strong>80%</strong> và <strong>100%</strong> hạn mức ngân sách.</p>
+                </div>
+
+                <!-- ENGLISH -->
+                <div class="lang-en">
+                    <h1>6. Tab 5: Budgets & Expense Alerts</h1>
+                    <p>Set monthly spending caps for individual categories (Food, Entertainment, Shopping...). System automatically pushes alert notifications when reaching <strong>80%</strong> and <strong>100%</strong> budget thresholds.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7: OFFLINE NOTIFICATION ENGINE -->
+            <section id="automation">
+                <!-- VIETNAMESE -->
+                <div class="lang-vi">
+                    <h1>7. Tự Động Hóa Đọc Thông Báo Ngân Hàng (Offline 100%)</h1>
+                    <p>MoneyLens tích hợp bộ phân tích cú pháp thông báo 100% Offline, hỗ trợ hơn 16 Ngân hàng & Ví điện tử hàng đầu Việt Nam (Vietcombank, Techcombank, MBBank, VPBank, BIDV, ACB, TPBank, MoMo, ZaloPay...).</p>
+
+                    <h2>Action Nhanh Trực Tiếp Trên Thanh Thông Báo (Push Notification)</h2>
+                    <p>Khi ngân hàng bắn thông báo biến động số dư, MoneyLens sẽ tạo một thông báo đẩy trên điện thoại kèm <strong>6 nút Thao Tác Nhanh (Quick Actions)</strong>:</p>
+                    <ol>
+                        <li>⚡ <strong>Ghi nhận ngay</strong>: Xác nhận nhanh giao dịch vào sổ.</li>
+                        <li>💳 <strong>Đổi Nguồn tiền</strong>: Toggle chuyển đổi nhanh giữa Nguồn Tiền mặt / Ngân hàng và Thẻ Credit.</li>
+                        <li>📂 <strong>Ăn uống</strong> / 🛒 <strong>Mua sắm</strong> / 🚗 <strong>Di chuyển</strong> / 🏠 <strong>Sinh hoạt</strong>: Chọn nhanh phân loại danh mục chỉ với 1 chạm.</li>
+                    </ol>
+                </div>
+
+                <!-- ENGLISH -->
+                <div class="lang-en">
+                    <h1>7. 100% Offline Bank Notification Engine</h1>
+                    <p>MoneyLens includes a 100% offline parser supporting 16+ top Vietnamese banks & e-wallets (VCB, TCB, MB, VPB, BIDV, ACB, TPB, MoMo, ZaloPay...).</p>
+
+                    <h2>Smart Notification Quick Actions</h2>
+                    <p>When a bank notification arrives, MoneyLens generates a push notification with <strong>6 Quick Action buttons</strong> directly in the Android status bar:</p>
+                    <ol>
+                        <li>⚡ <strong>Quick Confirm</strong>: Instant one-tap logging.</li>
+                        <li>💳 <strong>Toggle Payment Source</strong>: Switch source between Bank Account / Cash and Credit Card.</li>
+                        <li>📂 <strong>Food</strong> / 🛒 <strong>Shopping</strong> / 🚗 <strong>Transport</strong> / 🏠 <strong>Bills</strong>: Categorize instantly with a single tap.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- SECTION 8: SETTINGS & SECURITY -->
+            <section id="settings">
+                <!-- VIETNAMESE -->
+                <div class="lang-vi">
+                    <h1>8. Cài Đặt, Bảo Mật & Sao Lưu Dữ Liệu</h1>
+
+                    <h2>Bảo mật Mã PIN & Vân tay / Khuôn mặt</h2>
+                    <p>Vào Cài đặt $\rightarrow$ Bật Mã PIN 6 số hoặc Mở khóa Sinh trắc học. Khi thoát app ra ngoài quá thời gian chờ, MoneyLens sẽ tự động khóa ứng dụng để bảo vệ thông tin.</p>
+
+                    <h2>Tối ưu hóa Bàn phím Mềm (Smart Soft Keyboard)</h2>
+                    <p>Tất cả các ô nhập liệu trong ứng dụng đã được tối ưu: Khi bạn gõ xong và nhấn phím **Hoàn thành / √ / Search / Enter** trên bàn phím mềm, bàn phím sẽ **tự động thu gọn ngay lập tức** mà không cần nhấn phím Back vật lý.</p>
+
+                    <h2>Cơ chế Xóa Dữ Liệu Thông Minh</h2>
+                    <ul>
+                        <li><strong>Khi ở chế độ Dữ liệu Demo (Mẫu):</strong> Nhấn <em>"Xóa toàn bộ dữ liệu"</em> sẽ **thực hiện xóa ngay lập tức** mà không hỏi mật khẩu PIN hay Vân tay.</li>
+                        <li><strong>Khi ở chế độ Dữ liệu Thực:</strong> Yêu cầu xác thực Mã PIN hoặc Sinh trắc học nghiêm ngặt để bảo vệ sổ thu chi thực của bạn.</li>
+                    </ul>
+
+                    <h2>Sao lưu & Khôi phục (JSON Backup)</h2>
+                    <p>Xuất file JSON sao lưu dự phòng lưu trữ an toàn hoặc khôi phục dữ liệu nguyên bản trên thiết bị mới mà không cần kết nối mạng.</p>
+                </div>
+
+                <!-- ENGLISH -->
+                <div class="lang-en">
+                    <h1>8. Settings, Security & Backup</h1>
+
+                    <h2>PIN & Biometric Security</h2>
+                    <p>Navigate to Settings $\rightarrow$ Enable 6-digit PIN or Biometric Unlock. When left inactive in background, MoneyLens automatically locks the app to protect your finances.</p>
+
+                    <h2>Smart Soft Keyboard Dismissal</h2>
+                    <p>All text fields are optimized: Pressing **Done / √ / Search / Enter** on the soft keyboard **automatically dismisses the keyboard instantly** without needing to press the physical back button.</p>
+
+                    <h2>Smart Data Deletion Behavior</h2>
+                    <ul>
+                        <li><strong>When in Demo Data Mode:</strong> Tapping <em>"Delete All Data"</em> **clears data immediately** without asking for PIN or Biometrics.</li>
+                        <li><strong>When in Real User Data Mode:</strong> Strictly requires PIN or Biometric verification to safeguard your real finances.</li>
+                    </ul>
+
+                    <h2>Backup & Restore (JSON Backup)</h2>
+                    <p>Export safely to offline JSON backup files or restore your complete database on a new device with zero internet connectivity.</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- JavaScript for Bilingual Switch & Active Menu Highlight -->
+    <script>
+        function setLanguage(lang) {
+            const btnVi = document.getElementById('btn-vi');
+            const btnEn = document.getElementById('btn-en');
+            const viElements = document.querySelectorAll('.lang-vi');
+            const enElements = document.querySelectorAll('.lang-en');
+
+            if (lang === 'vi') {
+                btnVi.classList.add('active');
+                btnEn.classList.remove('active');
+                viElements.forEach(el => el.style.display = 'block');
+                enElements.forEach(el => el.style.display = 'none');
+                document.documentElement.lang = 'vi';
+            } else {
+                btnEn.classList.add('active');
+                btnVi.classList.remove('active');
+                viElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'block');
+                document.documentElement.lang = 'en';
+            }
+        }
+
+        // Active sidebar item on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.sidebar a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 120) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
