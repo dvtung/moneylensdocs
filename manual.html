@@ -3,22 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoneyLens - Hướng dẫn sử dụng / User Manual</title>
+    <title>MoneyLens - Hướng Dẫn Sử Dụng Toàn Diện / Comprehensive User Manual</title>
     <style>
         :root {
             --primary: #0A6B5C;
-            --primary-light: #E8F5E9;
+            --primary-light: #E6F4F1;
             --primary-dark: #004D40;
+            --primary-gradient: linear-gradient(135deg, #0A6B5C 0%, #004D40 100%);
             --accent: #1565C0;
+            --accent-light: #E3F2FD;
             --expense: #E53935;
+            --expense-light: #FFEBEE;
             --income: #2E7D32;
-            --bg-light: #F8FAF9;
+            --income-light: #E8F5E9;
+            --warning: #F59E0B;
+            --warning-light: #FEF3C7;
+            --warning-dark: #B45309;
+            --bg-body: #F4F7F6;
             --surface: #FFFFFF;
-            --text-dark: #1C1B1F;
-            --text-muted: #5A6065;
-            --border: #E2E8F0;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            --radius: 12px;
+            --surface-elevated: #FFFFFF;
+            --text-main: #1C2826;
+            --text-muted: #5C6B68;
+            --border: #E2E8E6;
+            --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 12px 32px rgba(10, 107, 92, 0.12);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-phone: 36px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #38B2AC;
+                --primary-light: #132E2B;
+                --primary-dark: #81E6D9;
+                --primary-gradient: linear-gradient(135deg, #1D403B 0%, #0D201E 100%);
+                --accent: #60A5FA;
+                --accent-light: #1E293B;
+                --expense: #F87171;
+                --expense-light: #371B1B;
+                --income: #4ADE80;
+                --income-light: #143520;
+                --warning: #FBBF24;
+                --warning-light: #36280B;
+                --warning-dark: #FDE68A;
+                --bg-body: #0E1615;
+                --surface: #182221;
+                --surface-elevated: #212E2C;
+                --text-main: #E6EDEC;
+                --text-muted: #94A3B8;
+                --border: #283735;
+                --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.2);
+                --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.3);
+                --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.4);
+            }
         }
 
         * {
@@ -29,23 +69,24 @@
         }
 
         body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Top Header Sticky Nav */
+        /* Top Sticky Bar */
         header {
             position: sticky;
             top: 0;
             background: var(--surface);
             border-bottom: 1px solid var(--border);
-            padding: 1rem 2rem;
+            padding: 0.85rem 1.75rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-sm);
         }
 
         .brand {
@@ -55,90 +96,94 @@
         }
 
         .brand-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            color: white;
-            border-radius: 10px;
+            width: 42px;
+            height: 42px;
+            background: var(--primary-gradient);
+            color: #FFFFFF;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 20px;
+            font-weight: 800;
+            font-size: 22px;
+            box-shadow: 0 4px 10px rgba(10, 107, 92, 0.3);
         }
 
         .brand-title {
             font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary-dark);
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.3px;
         }
 
         .version-badge {
             background: var(--primary-light);
             color: var(--primary);
-            padding: 2px 8px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
             margin-left: 8px;
+            border: 1px solid var(--primary);
         }
 
         .lang-switch {
             display: flex;
             align-items: center;
-            background: var(--bg-light);
+            background: var(--bg-body);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 4px;
-            cursor: pointer;
+            border-radius: 24px;
+            padding: 3px;
         }
 
         .lang-btn {
             padding: 6px 14px;
-            border-radius: 16px;
+            border-radius: 20px;
             border: none;
             background: transparent;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.85rem;
+            color: var(--text-muted);
             cursor: pointer;
             transition: all 0.2s ease;
         }
 
         .lang-btn.active {
             background: var(--primary);
-            color: white;
-            box-shadow: 0 2px 6px rgba(10, 107, 92, 0.3);
+            color: #FFFFFF;
+            box-shadow: 0 2px 8px rgba(10, 107, 92, 0.35);
         }
 
         /* Container Layout */
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 2rem auto;
             padding: 0 1.5rem;
             display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 2rem;
+            grid-template-columns: 290px 1fr;
+            gap: 2.25rem;
         }
 
         /* Sidebar Navigation */
         .sidebar {
             position: sticky;
             top: 5rem;
-            height: calc(100vh - 6rem);
+            height: calc(100vh - 6.5rem);
             overflow-y: auto;
             background: var(--surface);
             padding: 1.25rem;
-            border-radius: var(--radius);
+            border-radius: var(--radius-lg);
             border: 1px solid var(--border);
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-sm);
         }
 
         .sidebar h3 {
-            font-size: 0.9rem;
+            font-size: 0.82rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
             color: var(--text-muted);
-            margin-bottom: 1rem;
+            margin-bottom: 0.85rem;
+            padding-left: 0.5rem;
         }
 
         .sidebar ul {
@@ -146,147 +191,512 @@
         }
 
         .sidebar li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.35rem;
         }
 
         .sidebar a {
-            display: block;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             padding: 8px 12px;
-            color: var(--text-dark);
+            color: var(--text-main);
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
+            border-radius: 10px;
+            font-size: 0.88rem;
             font-weight: 500;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
         }
 
-        .sidebar a:hover, .sidebar a.active {
+        .sidebar a:hover {
             background: var(--primary-light);
-            color: var(--primary-dark);
-            font-weight: 600;
+            color: var(--primary);
         }
 
-        /* Content Main Panel */
+        .sidebar a.active {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+            border-left: 3px solid var(--primary);
+        }
+
+        /* Content Main Area */
         .content {
             background: var(--surface);
-            padding: 2.5rem;
-            border-radius: var(--radius);
+            padding: 3rem 2.5rem;
+            border-radius: var(--radius-lg);
             border: 1px solid var(--border);
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-sm);
         }
 
         section {
-            margin-bottom: 3rem;
-            scroll-margin-top: 6rem;
+            margin-bottom: 4rem;
+            scroll-margin-top: 5.5rem;
         }
 
         h1 {
             font-size: 2rem;
-            color: var(--primary-dark);
-            margin-bottom: 1rem;
+            color: var(--text-main);
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         h2 {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             color: var(--primary);
             border-bottom: 2px solid var(--primary-light);
             padding-bottom: 0.5rem;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             margin-bottom: 1rem;
-        }
-
-        h3 {
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            margin-top: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        p {
-            margin-bottom: 1rem;
-            color: #334155;
-        }
-
-        ul, ol {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        li {
-            margin-bottom: 0.4rem;
-        }
-
-        /* Callout Box */
-        .callout {
-            background: #F0FDF4;
-            border-left: 4px solid var(--primary);
-            padding: 1rem 1.25rem;
-            border-radius: 0 8px 8px 0;
-            margin: 1.2rem 0;
-        }
-
-        .callout-title {
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 0.3rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .callout-warning {
-            background: #FFFBEB;
-            border-left-color: #F59E0B;
-        }
-
-        .callout-warning .callout-title {
-            color: #B45309;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .badge-expense { background: #FFEBEE; color: var(--expense); }
-        .badge-income { background: #E8F5E9; color: var(--income); }
-        .badge-accent { background: #E3F2FD; color: var(--accent); }
-
-        /* Feature Card Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.25rem;
-            margin: 1.25rem 0;
-        }
-
-        .card {
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.25rem;
-        }
-
-        .card-title {
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--primary-dark);
-            margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        /* Hide elements according to language */
+        h3 {
+            font-size: 1.08rem;
+            color: var(--text-main);
+            margin-top: 1.35rem;
+            margin-bottom: 0.65rem;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            font-size: 0.96rem;
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        li {
+            margin-bottom: 0.45rem;
+            font-size: 0.95rem;
+        }
+
+        code {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 2px 6px;
+            border-radius: 5px;
+            font-size: 0.88em;
+            font-weight: 600;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+
+        /* Callouts */
+        .callout {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 1.15rem 1.35rem;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: 1.35rem 0;
+            font-size: 0.94rem;
+        }
+
+        .callout-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.35rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+
+        .callout-warning {
+            background: var(--warning-light);
+            border-left-color: var(--warning);
+        }
+
+        .callout-warning .callout-title {
+            color: var(--warning-dark);
+        }
+
+        .callout-danger {
+            background: var(--expense-light);
+            border-left-color: var(--expense);
+        }
+
+        .callout-danger .callout-title {
+            color: var(--expense);
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 9px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .badge-expense { background: var(--expense-light); color: var(--expense); }
+        .badge-income { background: var(--income-light); color: var(--income); }
+        .badge-accent { background: var(--accent-light); color: var(--accent); }
+        .badge-primary { background: var(--primary-light); color: var(--primary); }
+        .badge-warning { background: var(--warning-light); color: var(--warning-dark); }
+
+        /* Feature Grid & Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.35rem;
+            margin: 1.35rem 0;
+        }
+
+        .card {
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.35rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1.02rem;
+            color: var(--text-main);
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Formula Box */
+        .formula-box {
+            background: var(--surface-elevated);
+            border: 1.5px dashed var(--primary);
+            border-radius: var(--radius-md);
+            padding: 1.25rem 1.5rem;
+            margin: 1.25rem 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .formula-line {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+
+        /* Data Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.35rem 0;
+            font-size: 0.92rem;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        th, td {
+            padding: 11px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* ========================================================
+           VISUAL UI PHONE MOCKUP SYSTEM (100% Offline SVG/CSS)
+           ======================================================== */
+        .mockup-container {
+            margin: 1.75rem 0 2.25rem 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone-mockup {
+            width: 100%;
+            max-width: 380px;
+            background: #111827;
+            border: 10px solid #1F2937;
+            border-radius: var(--radius-phone);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            position: relative;
+            color: #111827;
+        }
+
+        /* Phone Top Notch / Dynamic Island */
+        .phone-notch {
+            height: 28px;
+            background: #111827;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 16px;
+        }
+
+        .phone-island {
+            width: 90px;
+            height: 18px;
+            background: #000000;
+            border-radius: 12px;
+        }
+
+        .phone-screen {
+            background: #F8FAF9;
+            min-height: 480px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Mockup Header */
+        .pm-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 6px;
+        }
+
+        .pm-header-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #0F172A;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pm-header-icon {
+            width: 32px;
+            height: 32px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+            font-size: 14px;
+        }
+
+        /* Mockup Card Component */
+        .pm-card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 14px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+            border: 1px solid #E2E8F0;
+        }
+
+        .pm-card-emerald {
+            background: linear-gradient(135deg, #0A6B5C 0%, #004D40 100%);
+            color: #FFFFFF;
+            border: none;
+            box-shadow: 0 8px 20px rgba(10, 107, 92, 0.3);
+        }
+
+        .pm-networth-label {
+            font-size: 0.8rem;
+            opacity: 0.85;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .pm-networth-val {
+            font-size: 1.65rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+
+        .pm-card-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.75rem;
+        }
+
+        .pm-card-stat-val {
+            font-weight: 700;
+            font-size: 0.88rem;
+        }
+
+        /* Mockup List Item */
+        .pm-list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #F1F5F9;
+        }
+
+        .pm-list-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .pm-item-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pm-icon-box {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .pm-item-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #1E293B;
+            line-height: 1.2;
+        }
+
+        .pm-item-sub {
+            font-size: 0.72rem;
+            color: #64748B;
+        }
+
+        .pm-amount-pos {
+            font-weight: 800;
+            color: #16A34A;
+            font-size: 0.9rem;
+        }
+
+        .pm-amount-neg {
+            font-weight: 800;
+            color: #DC2626;
+            font-size: 0.9rem;
+        }
+
+        /* Mockup Progress Bar */
+        .pm-progress-bg {
+            background: #E2E8F0;
+            height: 8px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-top: 6px;
+        }
+
+        .pm-progress-bar {
+            height: 100%;
+            border-radius: 6px;
+        }
+
+        /* Mockup Bottom Navigation Bar */
+        .pm-bottom-nav {
+            background: #FFFFFF;
+            border-radius: 18px;
+            padding: 8px 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border: 1px solid #E2E8F0;
+            margin-top: auto;
+        }
+
+        .pm-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            font-size: 0.65rem;
+            color: #64748B;
+            font-weight: 600;
+        }
+
+        .pm-nav-item.active {
+            color: #0A6B5C;
+            font-weight: 800;
+        }
+
+        .pm-nav-icon {
+            font-size: 16px;
+        }
+
+        /* Push Notification Banner Mockup */
+        .pm-push-notif {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 12px 14px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            border: 1px solid #CBD5E1;
+            margin: 8px 0;
+        }
+
+        .pm-push-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: #64748B;
+            margin-bottom: 6px;
+        }
+
+        .pm-push-actions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .pm-push-btn {
+            background: #F1F5F9;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 5px 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-align: center;
+            color: #0F172A;
+        }
+
+        .pm-push-btn.primary {
+            background: #0A6B5C;
+            color: #FFFFFF;
+            border-color: #0A6B5C;
+        }
+
+        /* Language Toggle Visibility */
         .lang-en {
             display: none;
         }
 
         /* Responsive Layout */
-        @media (max-width: 868px) {
+        @media (max-width: 960px) {
             .container {
                 grid-template-columns: 1fr;
             }
@@ -294,7 +704,10 @@
                 display: none;
             }
             .content {
-                padding: 1.5rem;
+                padding: 1.75rem 1.25rem;
+            }
+            .phone-mockup {
+                max-width: 340px;
             }
         }
     </style>
@@ -307,11 +720,10 @@
             <div class="brand-icon">M</div>
             <div>
                 <span class="brand-title">MoneyLens</span>
-                <span class="version-badge">v1.0.4</span>
+                <span class="version-badge">v1.2.18</span>
             </div>
         </div>
 
-        <!-- Bilingual Toggle -->
         <div class="lang-switch">
             <button class="lang-btn active" id="btn-vi" onclick="setLanguage('vi')">🇻🇳 Tiếng Việt</button>
             <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">🇬🇧 English</button>
@@ -319,333 +731,1327 @@
     </header>
 
     <div class="container">
-        <!-- Sidebar Table of Contents -->
+        <!-- Sidebar Navigation -->
         <nav class="sidebar">
-            <h3 class="lang-vi">Mục Lục Hướng Dẫn</h3>
-            <h3 class="lang-en">Manual Contents</h3>
+            <h3 class="lang-vi">Mục Lục Cẩm Nang</h3>
+            <h3 class="lang-en">Table of Contents</h3>
             <ul>
-                <li><a href="#intro" class="active">1. <span class="lang-vi">Giới thiệu & Khởi tạo</span><span class="lang-en">Introduction & Onboarding</span></a></li>
-                <li><a href="#tab-overview">2. <span class="lang-vi">Tổng quan Tài sản Ròng</span><span class="lang-en">Net Worth Overview</span></a></li>
-                <li><a href="#tab-transactions">3. <span class="lang-vi">Quản lý Giao dịch & Thu chi</span><span class="lang-en">Transactions Management</span></a></li>
-                <li><a href="#tab-credit">4. <span class="lang-vi">Tín dụng & Công nợ</span><span class="lang-en">Credit & Debt Management</span></a></li>
-                <li><a href="#tab-portfolio">5. <span class="lang-vi">Tích sản & Đầu tư</span><span class="lang-en">Investment Portfolio</span></a></li>
-                <li><a href="#tab-budget">6. <span class="lang-vi">Ngân sách & Cảnh báo</span><span class="lang-en">Budgets & Alerts</span></a></li>
-                <li><a href="#automation">7. <span class="lang-vi">Đọc thông báo Tự động 100%</span><span class="lang-en">100% Offline Notification Engine</span></a></li>
-                <li><a href="#settings">8. <span class="lang-vi">Cài đặt & Bảo mật</span><span class="lang-en">Settings & Security</span></a></li>
+                <li><a href="#intro" class="active"><span>🚀</span> <span class="lang-vi">1. Giới thiệu & Khởi tạo</span><span class="lang-en">1. Intro & Onboarding</span></a></li>
+                <li><a href="#glossary"><span>📖</span> <span class="lang-vi">2. Thuật ngữ & Công thức</span><span class="lang-en">2. Glossary & Formulas</span></a></li>
+                <li><a href="#tab-overview"><span>🛡️</span> <span class="lang-vi">3. Tổng quan Tài sản ròng</span><span class="lang-en">3. Net Worth Dashboard</span></a></li>
+                <li><a href="#tab-transactions"><span>📑</span> <span class="lang-vi">4. Giao dịch & Sổ thu chi</span><span class="lang-en">4. Transactions & Ledger</span></a></li>
+                <li><a href="#tab-budget"><span>🎯</span> <span class="lang-vi">5. Ngân sách & Hạn mức</span><span class="lang-en">5. Budget & Thresholds</span></a></li>
+                <li><a href="#tab-portfolio"><span>📈</span> <span class="lang-vi">6. Tích sản & Đầu tư</span><span class="lang-en">6. Wealth & Portfolio</span></a></li>
+                <li><a href="#tab-credit"><span>💳</span> <span class="lang-vi">7. Nợ & Thẻ tín dụng</span><span class="lang-en">7. Credit Cards & Debts</span></a></li>
+                <li><a href="#automation"><span>⚡</span> <span class="lang-vi">8. Đọc thông báo Offline</span><span class="lang-en">8. Offline SMS / Alerts</span></a></li>
+                <li><a href="#settings"><span>⚙️</span> <span class="lang-vi">9. Cài đặt & Bảo mật</span><span class="lang-en">9. Settings & Security</span></a></li>
+                <li><a href="#faq"><span>❓</span> <span class="lang-vi">10. Hỏi đáp thường gặp</span><span class="lang-en">10. FAQ & Troubleshooting</span></a></li>
             </ul>
         </nav>
 
-        <!-- Main Guide Content -->
+        <!-- Main Content Area -->
         <main class="content">
 
-            <!-- SECTION 1: INTRODUCTION & ONBOARDING -->
+            <!-- ==========================================
+                 PHẦN 1: GIỚI THIỆU & KHỞI TẠO ONBOARDING
+                 ========================================== -->
             <section id="intro">
                 <!-- VIETNAMESE -->
                 <div class="lang-vi">
-                    <h1>1. Giới thiệu & Khởi tạo Ứng dụng</h1>
-                    <p><strong>MoneyLens</strong> là ứng dụng quản lý tài chính cá nhân toàn diện, hoạt động <strong>Offline 100% (Local-First)</strong> giúp bảo vệ quyền riêng tư tuyệt đối cho dữ liệu tài chính của bạn. Ứng dụng tích hợp quản lý Tài sản ròng (Net Worth), Thẻ tín dụng, Khoản vay/Trả góp, Tích sản đầu tư và Tự động đọc thông báo biến động số dư ngân hàng.</p>
-
-                    <h2>Màn hình Chào mừng (Onboarding Dialog)</h2>
-                    <p>Khi bạn mở MoneyLens lần đầu tiên, ứng dụng sẽ hiển thị Popup thiết lập nhanh:</p>
-                    <ul>
-                        <li><strong>Chế độ dữ liệu ban đầu:</strong>
-                            <ul>
-                                <li><span class="badge badge-accent">🆕 Bắt đầu mới (Mặc định)</span>: Tạo sổ thu chi hoàn toàn trống sạch để bạn bắt đầu ghi chép thực tế từ 0.</li>
-                                <li><span class="badge badge-income">🚀 Dữ liệu mẫu</span>: Nạp sẵn 10 giao dịch mẫu, 2 thẻ tín dụng và 4 tài sản đầu tư để bạn trải nghiệm ngay tính năng.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Thông tin cá nhân:</strong> Nhập tên/biệt danh và chọn biểu tượng Đại diện Emoji (💼, 🪙, 📊, 🌟, 🚀).</li>
-                        <li><strong>Bảo mật ban đầu:</strong> Tùy chọn thiết lập Mã PIN 6 chữ số và bật mở khóa bằng Vân tay / Khuôn mặt (Biometric).</li>
-                    </ul>
+                    <h1>🚀 1. Giới Thiệu & Thiết Lập Ban Đầu (Onboarding)</h1>
+                    <p><strong>MoneyLens</strong> là giải pháp quản lý tài chính cá nhân toàn diện, bảo mật theo chuẩn <strong>Local-First (100% On-Device)</strong>. Ứng dụng giúp bạn kiểm soát toàn bộ bức tranh tài chính: từ dòng tiền thu chi hàng ngày, hạn mức thẻ tín dụng, danh mục tài sản tích sản đầu tư (Cổ phiếu, Quỹ, Vàng, BĐS, Crypto) đến công nợ vay mượn và tự động bóc tách biến động số dư ngân hàng mà không cần kết nối Internet.</p>
 
                     <div class="callout">
-                        <div class="callout-title">💡 Mẹo nhỏ</div>
-                        <p>Nếu nhập mã PIN 6 số, khi bạn gõ xong số thứ 6 ở ô đầu tiên, ứng dụng sẽ <strong>tự động nhảy tiêu điểm</strong> xuống ô xác nhận và tự động thu gọn bàn phím khi hoàn tất!</p>
+                        <div class="callout-title">🔒 Cam Kết Quyền Riêng Tư Tuyệt Đối (Local-First)</div>
+                        <p>Toàn bộ cơ sở dữ liệu Room SQLite được lưu trữ riêng tư trong bộ nhớ điện thoại của bạn. Không gửi dữ liệu thu chi lên bất kỳ máy chủ đám mây nào. Bạn hoàn toàn làm chủ 100% dữ liệu tài chính của mình!</p>
+                    </div>
+
+                    <h2>Quy Trình 6 Bước Onboarding Khi Mở Ứng Dụng Lần Đầu</h2>
+                    <p>Khi tải và mở ứng dụng lần đầu tiên, hệ thống sẽ hướng dẫn bạn qua màn hình chào mừng 6 bước trực quan:</p>
+                    <ol>
+                        <li><strong>Chào mừng & Giới thiệu triết lý:</strong> Tìm hiểu về nguyên lý quản lý tài chính và cam kết bảo mật On-Device.</li>
+                        <li><strong>Chọn Chế độ dữ liệu ban đầu:</strong>
+                            <ul>
+                                <li><span class="badge badge-accent">🆕 Bắt đầu mới (Khuyến nghị)</span>: Khởi tạo sổ cái hoàn toàn trống sạch để bạn nhập liệu thu chi thực tế từ con số 0.</li>
+                                <li><span class="badge badge-primary">🚀 Dữ liệu mẫu (Demo)</span>: Nạp sẵn các giao dịch thu chi mẫu, thẻ tín dụng và danh mục đầu tư để bạn khám phá các tính năng và biểu đồ trực quan ngay lập tức.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Tùy chỉnh Thông tin cá nhân:</strong> Nhập Tên hiển thị (Display Name) và chọn Biểu tượng cảm xúc (Avatar Emoji) cá tính: 💼 Doanh nhân, 🪙 Tài chính, 📊 Nhà đầu tư, 🌟 Năng động, 🚀 Bứt phá.</li>
+                        <li><strong>Thiết lập Bảo mật PIN 6 số:</strong> Tùy chọn cài đặt mã PIN bảo vệ mở khóa app. Ô nhập liệu thông minh sẽ tự động chuyển tiêu điểm sang ô xác nhận khi bạn gõ đủ 6 số và tự động ẩn bàn phím khi hoàn thành.</li>
+                        <li><strong>Kích hoạt Sinh trắc học (Biometric):</strong> Bật mở khóa bằng Vân tay / Khuôn mặt (Face Unlock) thông qua phần cứng Secure Element của điện thoại.</li>
+                        <li><strong>Cấp quyền Đọc thông báo ngân hàng (Tùy chọn):</strong> Hướng dẫn kích hoạt quyền <code>NotificationListenerService</code> để tự động nhận diện tin nhắn biến động số dư.</li>
+                    </ol>
+
+                    <!-- Mockup UI: Onboarding & Setup -->
+                    <div class="mockup-container">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"><div class="phone-island"></div></div>
+                            <div class="phone-screen">
+                                <div class="pm-header">
+                                    <div class="pm-header-title"><span>🌟</span> Chào mừng đến MoneyLens</div>
+                                    <div class="pm-header-icon">⚙️</div>
+                                </div>
+                                <div class="pm-card pm-card-emerald">
+                                    <div style="font-size: 0.8rem; opacity: 0.9;">BƯỚC 2 / 6 &bull; CHỌN CHẾ ĐỘ</div>
+                                    <div style="font-size: 1.2rem; font-weight: 800; margin: 4px 0 10px 0;">Bắt Đầu Trải Nghiệm</div>
+                                    <div style="font-size: 0.8rem; line-height: 1.4;">Chọn tạo sổ trắng để ghi chép thực tế hoặc nạp dữ liệu mẫu để thử nghiệm tính năng ngay.</div>
+                                </div>
+                                <div class="pm-card" style="border: 2px solid #0A6B5C; background: #E6F4F1;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <div style="font-weight: 800; color: #0A6B5C; font-size: 0.95rem;">🆕 Bắt đầu mới (Khuyên dùng)</div>
+                                        <span style="color: #0A6B5C; font-weight: 900;">✓</span>
+                                    </div>
+                                    <div style="font-size: 0.78rem; color: #5C6B68; margin-top: 4px;">Sổ thu chi hoàn toàn trống sạch để bắt đầu từ con số 0.</div>
+                                </div>
+                                <div class="pm-card">
+                                    <div style="font-weight: 700; color: #1E293B; font-size: 0.95rem;">🚀 Trải nghiệm dữ liệu mẫu</div>
+                                    <div style="font-size: 0.78rem; color: #64748B; margin-top: 4px;">Nạp sẵn 10 giao dịch, 2 thẻ tín dụng, 4 tài sản mẫu.</div>
+                                </div>
+                                <div class="pm-card">
+                                    <div style="font-size: 0.8rem; font-weight: 700; color: #1E293B; margin-bottom: 6px;">MÃ PIN BẢO VỆ 6 SỐ</div>
+                                    <div style="display: flex; gap: 8px; justify-content: center;">
+                                        <div style="width: 32px; height: 38px; border-radius: 8px; background: #F1F5F9; border: 1.5px solid #0A6B5C; display: flex; align-items: center; justify-content: center; font-weight: 900;">●</div>
+                                        <div style="width: 32px; height: 38px; border-radius: 8px; background: #F1F5F9; border: 1.5px solid #0A6B5C; display: flex; align-items: center; justify-content: center; font-weight: 900;">●</div>
+                                        <div style="width: 32px; height: 38px; border-radius: 8px; background: #F1F5F9; border: 1.5px solid #0A6B5C; display: flex; align-items: center; justify-content: center; font-weight: 900;">●</div>
+                                        <div style="width: 32px; height: 38px; border-radius: 8px; background: #F1F5F9; border: 1px solid #CBD5E1; display: flex; align-items: center; justify-content: center;">-</div>
+                                        <div style="width: 32px; height: 38px; border-radius: 8px; background: #F1F5F9; border: 1px solid #CBD5E1; display: flex; align-items: center; justify-content: center;">-</div>
+                                        <div style="width: 32px; height: 38px; border-radius: 8px; background: #F1F5F9; border: 1px solid #CBD5E1; display: flex; align-items: center; justify-content: center;">-</div>
+                                    </div>
+                                    <div style="font-size: 0.72rem; color: #0A6B5C; text-align: center; margin-top: 6px; font-weight: 600;">⚡ Tự động chuyển ô khi nhập đủ 6 số</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- ENGLISH -->
                 <div class="lang-en">
-                    <h1>1. Introduction & Initial Setup</h1>
-                    <p><strong>MoneyLens</strong> is a comprehensive, <strong>100% Offline (Local-First)</strong> personal finance manager that respects your privacy. It provides integrated tracking for Net Worth, Credit Cards, Loans & Installments, Investment Assets, and 100% offline Bank SMS/Notification recognition.</p>
-
-                    <h2>Welcome Onboarding Screen</h2>
-                    <p>When launching MoneyLens for the first time, you will be welcomed by a setup dialog:</p>
-                    <ul>
-                        <li><strong>Initial Data Mode:</strong>
-                            <ul>
-                                <li><span class="badge badge-accent">🆕 Clean Start (Default)</span>: Creates a fresh, empty ledger for recording real transactions from scratch.</li>
-                                <li><span class="badge badge-income">🚀 Demo Data</span>: Preloads 10 sample transactions, 2 credit cards, and 4 assets to explore features instantly.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Profile Info:</strong> Enter your display name/nickname and select an Avatar Emoji (💼, 🪙, 📊, 🌟, 🚀).</li>
-                        <li><strong>Initial Security:</strong> Optionally configure a 6-digit PIN code and enable Fingerprint / Face Unlock (Biometrics).</li>
-                    </ul>
+                    <h1>🚀 1. Introduction & Initial Onboarding</h1>
+                    <p><strong>MoneyLens</strong> is a comprehensive personal finance tracking suite engineered with a <strong>Local-First (100% On-Device)</strong> architecture. It empowers you to govern your complete financial ecosystem: daily income and living expenses, credit card billing cycles and grace periods, multi-asset wealth accumulation (Stocks, Mutual Funds, Gold, Real Estate, Crypto), peer lending/borrowing, and automated bank notification parsing without requiring an Internet connection.</p>
 
                     <div class="callout">
-                        <div class="callout-title">💡 Pro Tip</div>
-                        <p>When entering a 6-digit PIN, typing the 6th digit automatically moves focus to the Confirmation field and dismisses the keyboard upon completion!</p>
+                        <div class="callout-title">🔒 Absolute Privacy Guarantee (Local-First)</div>
+                        <p>100% of your SQLite database resides securely on your local phone storage. Transaction logs are never uploaded to cloud servers or monetized. You hold full sovereignty over your data!</p>
+                    </div>
+
+                    <h2>6-Step Initial Onboarding Flow</h2>
+                    <p>When launching the application for the first time, a streamlined setup walkthrough will guide you:</p>
+                    <ol>
+                        <li><strong>Welcome & Core Philosophy:</strong> Introduction to modern local-first personal financial governance.</li>
+                        <li><strong>Initial Data Mode Selection:</strong>
+                            <ul>
+                                <li><span class="badge badge-accent">🆕 Clean Start (Recommended)</span>: Instantiates a pristine, empty ledger for recording real transactions from day zero.</li>
+                                <li><span class="badge badge-primary">🚀 Demo Data</span>: Pre-populates sample entries, credit cards, and portfolio holdings to explore visual charts and widgets immediately.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Profile Customization:</strong> Define your display nickname and pick an Avatar Emoji: 💼 Executive, 🪙 Financier, 📊 Investor, 🌟 Dynamic, 🚀 Visionary.</li>
+                        <li><strong>6-Digit PIN Security:</strong> Configure an optional security PIN. The smart input field automatically forwards focus to the confirmation field upon entering the 6th digit and dismisses the keyboard upon completion.</li>
+                        <li><strong>Biometric Unlock:</strong> Enable Fingerprint or Face recognition via your phone's hardware Secure Element.</li>
+                        <li><strong>Bank Notification Permission (Optional):</strong> Step-by-step guidance to grant <code>NotificationListenerService</code> for automated on-device transaction parsing.</li>
+                    </ol>
+
+                    <!-- Mockup UI: Onboarding & Setup (English) -->
+                    <div class="mockup-container">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"><div class="phone-island"></div></div>
+                            <div class="phone-screen">
+                                <div class="pm-header">
+                                    <div class="pm-header-title"><span>🌟</span> Welcome to MoneyLens</div>
+                                    <div class="pm-header-icon">⚙️</div>
+                                </div>
+                                <div class="pm-card pm-card-emerald">
+                                    <div style="font-size: 0.8rem; opacity: 0.9;">STEP 2 / 6 &bull; DATA MODE</div>
+                                    <div style="font-size: 1.2rem; font-weight: 800; margin: 4px 0 10px 0;">Getting Started</div>
+                                    <div style="font-size: 0.8rem; line-height: 1.4;">Choose a clean ledger for genuine tracking or sample demo data for instant feature tour.</div>
+                                </div>
+                                <div class="pm-card" style="border: 2px solid #0A6B5C; background: #E6F4F1;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <div style="font-weight: 800; color: #0A6B5C; font-size: 0.95rem;">🆕 Clean Start (Recommended)</div>
+                                        <span style="color: #0A6B5C; font-weight: 900;">✓</span>
+                                    </div>
+                                    <div style="font-size: 0.78rem; color: #5C6B68; margin-top: 4px;">Pristine ledger ready for your real financial records.</div>
+                                </div>
+                                <div class="pm-card">
+                                    <div style="font-weight: 700; color: #1E293B; font-size: 0.95rem;">🚀 Demo Preloaded Mode</div>
+                                    <div style="font-size: 0.78rem; color: #64748B; margin-top: 4px;">Preloads 10 transactions, 2 cards, and 4 assets.</div>
+                                </div>
+                                <div class="pm-card">
+                                    <div style="font-size: 0.8rem; font-weight: 700; color: #1E293B; margin-bottom: 6px;">6-DIGIT PIN SECURITY</div>
+                                    <div style="display: flex; gap: 8px; justify-content: center;">
+                                        <div style="width: 32px; height: 38px; border-radius: 8px; background: #F1F5F9; border: 1.5px solid #0A6B5C; display: flex; align-items: center; justify-content: center; font-weight: 900;">●</div>
+                                        <div style="width: 32px; height: 38px; border-radius: 8px; background: #F1F5F9; border: 1.5px solid #0A6B5C; display: flex; align-items: center; justify-content: center; font-weight: 900;">●</div>
+                                        <div style="width: 32px; height: 38px; border-radius: 8px; background: #F1F5F9; border: 1.5px solid #0A6B5C; display: flex; align-items: center; justify-content: center; font-weight: 900;">●</div>
+                                        <div style="width: 32px; height: 38px; border-radius: 8px; background: #F1F5F9; border: 1px solid #CBD5E1; display: flex; align-items: center; justify-content: center;">-</div>
+                                        <div style="width: 32px; height: 38px; border-radius: 8px; background: #F1F5F9; border: 1px solid #CBD5E1; display: flex; align-items: center; justify-content: center;">-</div>
+                                        <div style="width: 32px; height: 38px; border-radius: 8px; background: #F1F5F9; border: 1px solid #CBD5E1; display: flex; align-items: center; justify-content: center;">-</div>
+                                    </div>
+                                    <div style="font-size: 0.72rem; color: #0A6B5C; text-align: center; margin-top: 6px; font-weight: 600;">⚡ Auto-forwards focus on 6th digit</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- SECTION 2: NET WORTH & DASHBOARD -->
+            <!-- ==========================================
+                 PHẦN 2: THUẬT NGỮ & CÔNG THỨC CỐT LÕI
+                 ========================================== -->
+            <section id="glossary">
+                <!-- VIETNAMESE -->
+                <div class="lang-vi">
+                    <h1>📖 2. Bảng Tra Cứu Thuật Ngữ & Logic Tính Toán Cốt Lõi</h1>
+                    <p>Để hiểu rõ các con số hiển thị trong MoneyLens, dưới đây là định nghĩa chi tiết và các công thức toán học được ứng dụng tự động tính toán:</p>
+
+                    <div class="formula-box">
+                        <div class="formula-line">1. Tài Sản Ròng (Net Worth) = Tổng Tài Sản - Tổng Nợ</div>
+                        <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">
+                            <strong>Tổng Tài Sản:</strong> Tiền mặt + Số dư tài khoản ngân hàng + Số dư ví điện tử + Giá trị hiện tại danh mục tích sản đầu tư (Cổ phiếu, Quỹ, Vàng, BĐS, Crypto) + Các khoản cho vay phải thu.<br>
+                            <strong>Tổng Nợ:</strong> Dư nợ thẻ tín dụng hiện tại + Các khoản nợ đi vay + Số tiền còn lại của các khoản mua hàng trả góp.
+                        </p>
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-line">2. Hạn Mức Khả Dụng Thẻ Tín Dụng = Hạn Mức Tín Dụng - Dư Nợ Hiện Tại</div>
+                        <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">
+                            Ví dụ: Thẻ có hạn mức 50.000.000 đ, bạn đã quẹt chi tiêu 12.000.000 đ thì hạn mức khả dụng còn lại là 38.000.000 đ.
+                        </p>
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-line">3. Kế Toán Hoàn Tiền (Cashback) Thẻ Tín Dụng & Trả Nợ Thẻ</div>
+                        <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">
+                            <code>Dư Nợ Mới = Dư Nợ Hiện Tại - Khoản Hoàn Tiền</code><br>
+                            <strong>Nguyên tắc kế toán kép:</strong> Khoản thu từ hoàn tiền (hoặc nộp tiền trả nợ thẻ) <strong>chỉ làm giảm dư nợ thẻ</strong>, <strong>KHÔNG cộng vào Tổng Thu Nhập tháng</strong> và <strong>KHÔNG cộng đúp vào Tài Sản Ròng</strong>. Điều này phản ánh chính xác thực tế dòng tiền mà không làm phồng ảo doanh thu của bạn!
+                        </p>
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-line">4. Lãi / Lỗ Đầu Tư (Unrealized PnL) = (Giá Thị Trường - Giá Vốn) &times; Khối Lượng</div>
+                        <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">
+                            <strong>Tỷ suất PnL (%):</strong> <code>((Giá Thị Trường - Giá Vốn) / Giá Vốn) &times; 100%</code><br>
+                            <strong>Giá trị thanh lý thực tế (Net Liquidation Value):</strong> <code>Tổng Giá Trị - Thuế TNCN Dự Kiến - Phí Bán Dự Kiến</code>.
+                        </p>
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-line">5. Tỷ Lệ Tiến Trình Ngân Sách = (Tổng Thực Chi / Ngân Sách Đề Ra) &times; 100%</div>
+                        <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">
+                            <strong>&lt; 80%:</strong> Trạng thái an toàn (Xanh lá).<br>
+                            <strong>80% - 99%:</strong> Ngưỡng cảnh báo cận hạn mức (Vàng cam).<br>
+                            <strong>&ge; 100%:</strong> Báo động đỏ bội chi vượt ngân sách (Đỏ).
+                        </p>
+                    </div>
+
+                    <h2>Bảng Tra Cứu Thuật Ngữ Nhanh</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Thuật ngữ</th>
+                                <th>Tiếng Anh</th>
+                                <th>Giải thích ý nghĩa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Tài sản ròng</strong></td>
+                                <td>Net Worth</td>
+                                <td>Tổng giá trị tài sản thực tế bạn sở hữu sau khi đã thanh toán hết toàn bộ các khoản nợ.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dư nợ thẻ</strong></td>
+                                <td>Credit Card Balance</td>
+                                <td>Tổng số tiền bạn đã chi tiêu bằng thẻ tín dụng và cần phải thanh toán cho ngân hàng.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ngày sao kê</strong></td>
+                                <td>Statement Date</td>
+                                <td>Ngày ngân hàng chốt giao dịch trong tháng để gửi hóa đơn thanh toán (từ ngày 1 đến ngày 31).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hạn thanh toán</strong></td>
+                                <td>Due Date</td>
+                                <td>Hạn chót bạn phải thanh toán số dư sao kê để được miễn lãi (thường sau ngày sao kê 15-25 ngày).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Thời gian miễn lãi</strong></td>
+                                <td>Grace Period</td>
+                                <td>Khoảng thời gian ngân hàng cho phép bạn vay chi tiêu không tính lãi (thường 45 đến 55 ngày).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hoàn tiền</strong></td>
+                                <td>Cashback</td>
+                                <td>Tiền thưởng ngân hàng trả lại vào tài khoản thẻ tín dụng khi bạn chi tiêu đủ điều kiện.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Giá vốn</strong></td>
+                                <td>Cost Basis</td>
+                                <td>Giá mua trung bình ban đầu của một cổ phiếu, chứng chỉ quỹ hoặc lượng vàng.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- ENGLISH -->
+                <div class="lang-en">
+                    <h1>📖 2. Financial Glossary & Core Mathematical Formulas</h1>
+                    <p>To accurately interpret your financial dashboards, below are explicit definitions and the mathematical formulas computed automatically by MoneyLens:</p>
+
+                    <div class="formula-box">
+                        <div class="formula-line">1. Net Worth = Total Assets - Total Liabilities</div>
+                        <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">
+                            <strong>Total Assets:</strong> Cash in hand + Bank deposits + E-wallet balances + Current valuation of investment assets (Stocks, Funds, Gold, Real Estate, Crypto) + Lending receivables.<br>
+                            <strong>Total Liabilities:</strong> Credit card outstanding balance + Personal bank loans + Remaining installment amounts.
+                        </p>
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-line">2. Available Credit Limit = Total Credit Limit - Current Owed Balance</div>
+                        <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">
+                            Example: Given a 50,000,000 limit with 12,000,000 billed, the remaining available spending capacity is 38,000,000.
+                        </p>
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-line">3. Credit Card Cashback & Debt Repayment Accounting</div>
+                        <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">
+                            <code>New Owed Balance = Prior Balance - Cashback / Payment Amount</code><br>
+                            <strong>Double-Entry Rule:</strong> Cashback and credit card debt payments <strong>only decrement the credit liability</strong>, and are <strong>EXCLUDED from Monthly Operating Income and Net Worth gain</strong> to prevent artificial revenue inflation!
+                        </p>
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-line">4. Unrealized PnL = (Current Market Price - Cost Basis) &times; Quantity</div>
+                        <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">
+                            <strong>PnL Percentage (%):</strong> <code>((Market Price - Cost Basis) / Cost Basis) &times; 100%</code><br>
+                            <strong>Net Liquidation Value:</strong> <code>Gross Market Value - Projected Capital Gains Tax - Estimated Exit Commission</code>.
+                        </p>
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-line">5. Budget Utilization Rate = (Actual Expenses / Allocated Cap) &times; 100%</div>
+                        <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">
+                            <strong>&lt; 80%:</strong> Safe spending tier (Green).<br>
+                            <strong>80% - 99%:</strong> Cautionary approach threshold (Amber).<br>
+                            <strong>&ge; 100%:</strong> Critical budget overrun alert (Red).
+                        </p>
+                    </div>
+
+                    <h2>Quick Terminology Cross-Reference</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Term</th>
+                                <th>Vietnamese</th>
+                                <th>Operational Definition</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Net Worth</strong></td>
+                                <td>Tài sản ròng</td>
+                                <td>True monetary value of assets remaining after completely settling all debts.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Credit Balance</strong></td>
+                                <td>Dư nợ thẻ</td>
+                                <td>Outstanding borrowing on credit cards payable to the issuing bank.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Statement Date</strong></td>
+                                <td>Ngày sao kê</td>
+                                <td>Day of the month when billing closes and statement is issued (days 1-31).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Due Date</strong></td>
+                                <td>Hạn thanh toán</td>
+                                <td>Deadline to clear the statement balance to preserve interest-free terms.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Grace Period</strong></td>
+                                <td>Miễn lãi</td>
+                                <td>Window granted by the bank without charging revolving interest (45-55 days).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cashback</strong></td>
+                                <td>Hoàn tiền</td>
+                                <td>Direct rebate credited back into the credit card account from qualifying purchases.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cost Basis</strong></td>
+                                <td>Giá vốn</td>
+                                <td>Average weighted initial purchase price per unit of securities, funds, or gold.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 PHẦN 3: TAB TỔNG QUAN (DASHBOARD)
+                 ========================================== -->
             <section id="tab-overview">
                 <!-- VIETNAMESE -->
                 <div class="lang-vi">
-                    <h1>2. Tab Tổng Quan & Tài Sản Ròng (Dashboard)</h1>
-                    <p>Đây là trung tâm điều hành tài chính cá nhân của bạn, giúp bạn nắm bắt ngay lập tức sức khỏe tài chính trong 3 giây.</p>
+                    <h1>🛡️ 3. Tab Tổng Quan & Bảng Điều Khiển Tài Sản Ròng</h1>
+                    <p>Tab <strong>Tổng quan</strong> là màn hình trung tâm điều hành tài chính cá nhân của bạn, được thiết kế giúp bạn nắm bắt toàn bộ bức tranh sức khỏe tiền bạc chỉ trong 3 giây.</p>
 
                     <div class="grid">
                         <div class="card">
-                            <div class="card-title">🛡️ Thẻ Tài Sản Ròng (Net Worth)</div>
-                            <p>Hiển thị tổng số dư bằng công thức: <code>Tài sản ròng = Tổng Tài Sản - Tổng Nợ</code>. Bạn có thể nhấn vào biểu tượng <strong>Con mắt 👁️</strong> để ẩn/hiện số tiền linh hoạt khi ở nơi công cộng.</p>
+                            <div class="card-title">🛡️ Thẻ Tài Sản Ròng (Net Worth Card)</div>
+                            <p>Hiển thị con số Tài sản ròng cập nhật theo thời gian thực. Nhấn vào biểu tượng <strong>Con mắt 👁️</strong> để ẩn/hiện số tiền linh hoạt khi bạn đang ở nơi công cộng để bảo vệ sự riêng tư.</p>
                         </div>
                         <div class="card">
-                            <div class="card-title">📊 Dòng Tiền & Ngân Sách Tháng</div>
-                            <p>Theo dõi tổng <span class="badge badge-income">Thu nhập</span>, <span class="badge badge-expense">Chi tiêu</span> thực tế trong tháng và thanh tiến trình Ngân sách tiêu dùng còn lại.</p>
+                            <div class="card-title">📊 Dòng Tiền Thu Chi Tháng</div>
+                            <p>Theo dõi tổng <span class="badge badge-income">Thu nhập</span> thực tế, <span class="badge badge-expense">Chi tiêu</span> thực tế trong tháng và Tiết kiệm ròng đạt được.</p>
                         </div>
                         <div class="card">
-                            <div class="card-title">📈 Biểu Đồ Trực Quan</div>
-                            <p>Bao gồm Biểu đồ cột Thu Chi theo từng tháng, Biểu đồ tròn Phân bổ chi tiêu theo danh mục, và Biểu đồ đường Lịch sử biến động Tài sản ròng theo thời gian.</p>
+                            <div class="card-title">📈 Bộ Ba Biểu Đồ Trực Quan</div>
+                            <p>Bao gồm: Biểu đồ cột so sánh Thu nhập vs Chi tiêu theo từng tháng; Biểu đồ tròn phân bổ chi tiêu theo danh mục; Biểu đồ đường thể hiện xu hướng tăng trưởng tài sản ròng qua các tháng.</p>
+                        </div>
+                    </div>
+
+                    <!-- Mockup UI: Overview Screen -->
+                    <div class="mockup-container">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"><div class="phone-island"></div></div>
+                            <div class="phone-screen">
+                                <div class="pm-header">
+                                    <div class="pm-header-title"><span>🛡️</span> Tổng Quan</div>
+                                    <div style="display: flex; gap: 8px;">
+                                        <div class="pm-header-icon">👁️</div>
+                                        <div class="pm-header-icon">🔔</div>
+                                    </div>
+                                </div>
+                                <!-- Thẻ Net Worth -->
+                                <div class="pm-card pm-card-emerald">
+                                    <div class="pm-networth-label">
+                                        <span>TỔNG TÀI SẢN RÒNG</span>
+                                        <span style="font-size: 0.72rem; background: rgba(255,255,255,0.2); padding: 2px 6px; border-radius: 4px;">Đang bảo vệ 🔒</span>
+                                    </div>
+                                    <div class="pm-networth-val">348.500.000 ₫</div>
+                                    <div class="pm-card-stats">
+                                        <div>
+                                            <div style="opacity: 0.8;">Tổng Tài Sản</div>
+                                            <div class="pm-card-stat-val">+382.000.000 ₫</div>
+                                        </div>
+                                        <div>
+                                            <div style="opacity: 0.8;">Tổng Dư Nợ</div>
+                                            <div class="pm-card-stat-val" style="color: #FCA5A5;">-33.500.000 ₫</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Dòng tiền tháng -->
+                                <div class="pm-card">
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; color: #1E293B; margin-bottom: 8px;">
+                                        <span>DÒNG TIỀN THÁNG 11</span>
+                                        <span style="color: #0A6B5C;">+14.200.000 ₫ dư</span>
+                                    </div>
+                                    <div style="display: flex; gap: 10px;">
+                                        <div style="flex: 1; background: #E8F5E9; padding: 8px; border-radius: 8px;">
+                                            <div style="font-size: 0.7rem; color: #2E7D32;">Thu Nhập</div>
+                                            <div style="font-weight: 800; color: #2E7D32; font-size: 0.9rem;">+28.500.000 ₫</div>
+                                        </div>
+                                        <div style="flex: 1; background: #FFEBEE; padding: 8px; border-radius: 8px;">
+                                            <div style="font-size: 0.7rem; color: #E53935;">Chi Tiêu</div>
+                                            <div style="font-weight: 800; color: #E53935; font-size: 0.9rem;">-14.300.000 ₫</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Bottom Nav -->
+                                <div class="pm-bottom-nav">
+                                    <div class="pm-nav-item active"><span class="pm-nav-icon">📊</span>Tổng quan</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📑</span>Giao dịch</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">🎯</span>Ngân sách</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📈</span>Tích sản</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">💳</span>Nợ &amp; Thẻ</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- ENGLISH -->
                 <div class="lang-en">
-                    <h1>2. Tab 1: Net Worth & Dashboard</h1>
-                    <p>Your personal finance control center, providing an instant 3-second overview of your overall financial health.</p>
+                    <h1>🛡️ 3. Net Worth Dashboard & Strategic Overview</h1>
+                    <p>The <strong>Overview Tab</strong> serves as your executive mission control, architected to communicate your holistic personal wealth velocity within 3 seconds.</p>
 
                     <div class="grid">
                         <div class="card">
-                            <div class="card-title">🛡️ Net Worth Summary Card</div>
-                            <p>Calculates total wealth: <code>Net Worth = Total Assets - Total Liabilities</code>. Tap the <strong>Eye icon 👁️</strong> to mask/unmask sensitive figures when in public.</p>
+                            <div class="card-title">🛡️ Real-Time Net Worth Card</div>
+                            <p>Computes true Net Worth live. Tap the <strong>Eye icon 👁️</strong> to obfuscate private numbers whenever you access the app in public venues.</p>
                         </div>
                         <div class="card">
-                            <div class="card-title">📊 Monthly Cash Flow</div>
-                            <p>Tracks <span class="badge badge-income">Total Income</span>, <span class="badge badge-expense">Total Living Expenses</span> for the current month, and remaining budget progress bars.</p>
+                            <div class="card-title">📊 Monthly Cash Flow Engine</div>
+                            <p>Audits gross <span class="badge badge-income">Income Inflows</span>, <span class="badge badge-expense">Living Expenses</span>, and net monthly wealth retention.</p>
                         </div>
                         <div class="card">
-                            <div class="card-title">📈 Visual Analytics</div>
-                            <p>Includes Monthly Income vs Expense Bar Charts, Category Expense Allocation Pie Charts, and Net Worth Historical Trend Lines over time.</p>
+                            <div class="card-title">📈 Analytics Triad</div>
+                            <p>Featuring: Monthly Comparative Bar Chart (Inflows vs Outflows); Allocation Pie Chart (Category distribution); Long-term Wealth Trajectory Trendline.</p>
+                        </div>
+                    </div>
+
+                    <!-- Mockup UI: Overview Screen (English) -->
+                    <div class="mockup-container">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"><div class="phone-island"></div></div>
+                            <div class="phone-screen">
+                                <div class="pm-header">
+                                    <div class="pm-header-title"><span>🛡️</span> Net Worth</div>
+                                    <div style="display: flex; gap: 8px;">
+                                        <div class="pm-header-icon">👁️</div>
+                                        <div class="pm-header-icon">🔔</div>
+                                    </div>
+                                </div>
+                                <div class="pm-card pm-card-emerald">
+                                    <div class="pm-networth-label">
+                                        <span>TOTAL NET WORTH</span>
+                                        <span style="font-size: 0.72rem; background: rgba(255,255,255,0.2); padding: 2px 6px; border-radius: 4px;">Protected 🔒</span>
+                                    </div>
+                                    <div class="pm-networth-val">348,500,000 ₫</div>
+                                    <div class="pm-card-stats">
+                                        <div>
+                                            <div style="opacity: 0.8;">Total Assets</div>
+                                            <div class="pm-card-stat-val">+382,000,000 ₫</div>
+                                        </div>
+                                        <div>
+                                            <div style="opacity: 0.8;">Liabilities</div>
+                                            <div class="pm-card-stat-val" style="color: #FCA5A5;">-33,500,000 ₫</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pm-card">
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; color: #1E293B; margin-bottom: 8px;">
+                                        <span>NOVEMBER CASH FLOW</span>
+                                        <span style="color: #0A6B5C;">+14,200,000 ₫ saved</span>
+                                    </div>
+                                    <div style="display: flex; gap: 10px;">
+                                        <div style="flex: 1; background: #E8F5E9; padding: 8px; border-radius: 8px;">
+                                            <div style="font-size: 0.7rem; color: #2E7D32;">Income</div>
+                                            <div style="font-weight: 800; color: #2E7D32; font-size: 0.9rem;">+28,500,000 ₫</div>
+                                        </div>
+                                        <div style="flex: 1; background: #FFEBEE; padding: 8px; border-radius: 8px;">
+                                            <div style="font-size: 0.7rem; color: #E53935;">Expense</div>
+                                            <div style="font-weight: 800; color: #E53935; font-size: 0.9rem;">-14,300,000 ₫</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pm-bottom-nav">
+                                    <div class="pm-nav-item active"><span class="pm-nav-icon">📊</span>Overview</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📑</span>Ledger</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">🎯</span>Budget</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📈</span>Invest</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">💳</span>Debts</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- SECTION 3: TRANSACTIONS MANAGEMENT -->
+            <!-- ==========================================
+                 PHẦN 4: TAB GIAO DỊCH & SỔ THU CHI
+                 ========================================== -->
             <section id="tab-transactions">
                 <!-- VIETNAMESE -->
                 <div class="lang-vi">
-                    <h1>3. Tab Giao Dịch & Quản Lý Thu Chi</h1>
-                    <p>Nơi theo dõi chi tiết từng dòng tiền vào/ra và ghi chép nhanh chóng.</p>
+                    <h1>📑 4. Tab Giao Dịch & Quản Lý Sổ Thu Chi</h1>
+                    <p>Tab <strong>Giao dịch</strong> lưu trữ lịch sử chi tiết mọi dòng tiền vào và ra của bạn, được sắp xếp khoa học theo từng ngày với khả năng tìm kiếm và phân loại thông minh.</p>
 
-                    <h2>Thêm Giao Dịch Nhanh (Nút Floating `+`)</h2>
+                    <h2>Thêm Giao Dịch Nhanh (Nút Nổi `+` FAB)</h2>
+                    <p>Nhấn vào nút tròn `+` ở góc dưới màn hình để mở <strong>QuickAddBottomSheet</strong>:</p>
                     <ul>
-                        <li><span class="badge badge-expense">Chi tiêu (-)</span>: Chọn số tiền, danh mục chi (Ăn uống, Giáo dục, Giải trí...) và chọn Nguồn chi từ <strong>Tài khoản chính</strong>, Ví MoMo/ZaloPay, Tiền mặt hoặc <strong>Thẻ Credit</strong>.</li>
-                        <li><span class="badge badge-income">Thu nhập (+)</span>: Nhập số tiền thu nhập và chọn Đích nhận tiền từ Tài khoản ngân hàng, Ví điện tử hoặc <strong>Thẻ Credit</strong>.</li>
-                    </ul>
-
-                    <div class="callout">
-                        <div class="callout-title">🌟 Kế toán Thẻ Credit thông minh (Khoản Thu vào Thẻ Credit)</div>
-                        <p>Khi bạn nhận khoản Thu (+) vào Thẻ Credit (khi nộp trả nợ thẻ hoặc nhận hoàn tiền từ ngân hàng): Giao dịch này <strong>chỉ thực hiện GIẢM DƯ NỢ của Thẻ Credit</strong>, đồng thời <strong>KHÔNG tính vào Tổng Thu Nhập Tháng</strong> và <strong>KHÔNG tính vào Tài Sản Ròng</strong> để tránh làm phồng ảo doanh thu!</p>
-                    </div>
-
-                    <h2>Tính năng Nâng cao trên Danh sách Giao dịch</h2>
-                    <ul>
-                        <li><strong>Tìm kiếm & Lọc:</strong> Gõ từ khóa tìm kiếm (bấm phím Search trên bàn phím để thu gọn ngay) hoặc lọc theo loại giao dịch (Chi tiêu, Thu nhập, Chờ duyệt).</li>
-                        <li><strong>Chọn nhiều (Batch Select):</strong> Nhấn giữ vào giao dịch để bật chế độ chọn hàng loạt $\rightarrow$ Xác nhận hoặc Xóa nhiều giao dịch cùng lúc.</li>
-                    </ul>
-                </div>
-
-                <!-- ENGLISH -->
-                <div class="lang-en">
-                    <h1>3. Tab 2: Transactions & Expense Manager</h1>
-                    <p>Detailed tracking and rapid logging for all cash inflows and outflows.</p>
-
-                    <h2>Quick Add Transaction (`+` Button)</h2>
-                    <ul>
-                        <li><span class="badge badge-expense">Expense (-)</span>: Enter amount, select category (Food, Education, Entertainment...) and source from <strong>Main Account</strong>, E-Wallets, Cash, or <strong>Credit Cards</strong>.</li>
-                        <li><span class="badge badge-income">Income (+)</span>: Enter amount and select receiving destination from Bank Accounts, E-Wallets, or <strong>Credit Cards</strong>.</li>
-                    </ul>
-
-                    <div class="callout">
-                        <div class="callout-title">🌟 Smart Credit Accounting (Income into Credit Card)</div>
-                        <p>When logging Income (+) directly into a Credit Card (refunds or debt payments): The app <strong>reduces the Credit Card's Owed Balance</strong> and <strong>EXCLUDES it from Monthly Income & Net Worth gain</strong> to prevent double-counting revenue!</p>
-                    </div>
-
-                    <h2>Advanced List Features</h2>
-                    <ul>
-                        <li><strong>Search & Filter:</strong> Type keywords (pressing Search on soft keyboard auto-dismisses it) or filter by type (Expense, Income, Pending).</li>
-                        <li><strong>Batch Selection:</strong> Long-press any item to enter multi-select mode $\rightarrow$ Batch confirm or delete multiple transactions at once.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- SECTION 4: CREDIT & DEBT MANAGEMENT -->
-            <section id="tab-credit">
-                <!-- VIETNAMESE -->
-                <div class="lang-vi">
-                    <h1>4. Tab Tín Dụng & Công Nợ</h1>
-                    <p>Quản lý toàn bộ danh sách Thẻ tín dụng, Tài khoản thanh toán, Ví điện tử và các Khoản vay/Cho vay/Trả góp.</p>
-
-                    <h2>Danh sách Tài khoản & Thẻ (Tab 1)</h2>
-                    <ul>
-                        <li>📌 <strong>Tài khoản chính (STK: `****`)</strong>: Được sắp xếp ưu tiên ở **Vị trí đầu tiên (Index 0)** để bạn quản lý số dư ngân hàng chính.</li>
-                        <li>💳 <strong>Thẻ Credit</strong>: Theo dõi Hạn mức khả dụng, Dư nợ hiện tại, Ngày sao kê (1-31) và Số ngày miễn lãi. Cảnh báo thông minh khi thẻ sắp đến hạn thanh toán.</li>
-                        <li>📱 <strong>Ví điện tử & Thẻ Debit</strong>: Quản lý số dư MoMo, ZaloPay, ViettelMoney...</li>
+                        <li><span class="badge badge-expense">Chi tiêu (-)</span>: Nhập số tiền, chọn Danh mục (Ăn uống, Đi lại, Mua sắm, Hóa đơn...), chọn Nguồn trích tiền (Tài khoản chính, Ví MoMo, Tiền mặt hoặc Thẻ tín dụng Credit Card).</li>
+                        <li><span class="badge badge-income">Thu nhập (+)</span>: Nhập số tiền thu nhập, chọn Danh mục (Lương, Thưởng, Lãi đầu tư, Hoàn tiền...) và chọn Tài khoản nhận tiền.</li>
                     </ul>
 
                     <div class="callout callout-warning">
-                        <div class="callout-title">💡 Hướng dẫn nhập nhiều Số thẻ / STK (CSV)</div>
-                        <p>Khi thêm hoặc sửa thẻ/tài khoản, ô <em>"4 số cuối thẻ / TK / Ví"</em> cho phép bạn nhập nhiều số phân tách bởi dấu phẩy <code>,</code> (Ví dụ: <code>8888, 9999, ****</code>). Ký tự wildcard <code>****</code> đại diện cho tài khoản chính mặc định.</p>
+                        <div class="callout-title">⭐ Cơ Chế Hoàn Tiền (Cashback) & Trả Nợ Thẻ Tín Dụng</div>
+                        <p>Khi nhận khoản Thu (+) vào <strong>Thẻ Tín Dụng</strong> với danh mục <strong>Hoàn tiền (Cashback)</strong>: Ứng dụng tự động <strong>giảm trừ số dư nợ thẻ</strong>, và <strong>KHÔNG cộng vào Tổng Thu nhập tháng</strong> và <strong>KHÔNG cộng đúp vào Tài sản ròng</strong>. Logic này đảm bảo sổ sách kế toán của bạn luôn chuẩn xác tuyệt đối!</p>
                     </div>
 
-                    <h2>Khoản Đi Vay / Mua Trả Góp & Cho Vay (Tab 2 & 3)</h2>
-                    <p>Theo dõi các khoản nợ đi vay, mua hàng trả góp qua thẻ tín dụng và các khoản tiền cho bạn bè/người thân vay. Hỗ trợ bấm <strong>"Thanh toán nợ"</strong> để tự động trừ/cộng số dư tài khoản tương ứng.</p>
+                    <h2>Các Tính Năng Cao Cấp Trong Sổ Giao Dịch</h2>
+                    <ul>
+                        <li><strong>Phiếu Xác Nhận Danh Mục (`ConfirmCategorySheet`):</strong> Khi thông báo ngân hàng được ghi nhận, phiếu xác nhận sẽ bật lên gợi ý danh mục thông minh, cho phép bạn chỉnh sửa nhanh danh mục, số tiền, ghi chú hoặc đổi nguồn tài khoản/thẻ.</li>
+                        <li><strong>Chế độ Chọn Nhiều (Batch Select):</strong> Nhấn giữ vào một giao dịch bất kỳ để kích hoạt chế độ chọn hàng loạt $\rightarrow$ Duyệt hoặc Xóa nhiều giao dịch cùng lúc chỉ với 1 chạm.</li>
+                        <li><strong>Tìm Kiếm & Bộ Lọc Nhanh:</strong> Tìm kiếm theo từ khóa ghi chú; Lọc theo Chi tiêu, Thu nhập hoặc Giao dịch đang chờ duyệt.</li>
+                        <li><strong>Nhập Dữ Liệu Ngân Hàng CSV (`CsvImportActivity`):</strong> Nhập trực tiếp tệp sao kê ngân hàng định dạng CSV vào ứng dụng.</li>
+                    </ul>
+
+                    <!-- Mockup UI: Transaction Ledger & Confirm Sheet -->
+                    <div class="mockup-container">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"><div class="phone-island"></div></div>
+                            <div class="phone-screen">
+                                <div class="pm-header">
+                                    <div class="pm-header-title"><span>📑</span> Sổ Giao Dịch</div>
+                                    <div class="pm-header-icon">🔍</div>
+                                </div>
+                                <div class="pm-card">
+                                    <div style="font-size: 0.75rem; font-weight: 700; color: #64748B; margin-bottom: 6px;">HÔM NAY &bull; 05 THÁNG 11</div>
+                                    <div class="pm-list-item">
+                                        <div class="pm-item-left">
+                                            <div class="pm-icon-box" style="background: #FFE4E6;">🍜</div>
+                                            <div>
+                                                <div class="pm-item-title">Ăn trưa bún bò</div>
+                                                <div class="pm-item-sub">Ví MoMo &bull; 12:30</div>
+                                            </div>
+                                        </div>
+                                        <div class="pm-amount-neg">-55.000 ₫</div>
+                                    </div>
+                                    <div class="pm-list-item">
+                                        <div class="pm-item-left">
+                                            <div class="pm-icon-box" style="background: #E0E7FF;">🎁</div>
+                                            <div>
+                                                <div class="pm-item-title">Hoàn tiền chi tiêu</div>
+                                                <div class="pm-item-sub">Thẻ VPBank StepUp &bull; 09:15</div>
+                                            </div>
+                                        </div>
+                                        <div class="pm-amount-pos">+120.000 ₫</div>
+                                    </div>
+                                </div>
+                                <!-- Modal Sheet Mockup -->
+                                <div class="pm-card" style="background: #F8FAF9; border: 2px dashed #0A6B5C;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                        <span style="font-weight: 800; color: #0A6B5C; font-size: 0.85rem;">XÁC NHẬN GIAO DỊCH</span>
+                                        <span style="font-size: 0.7rem; background: #0A6B5C; color: white; padding: 2px 6px; border-radius: 4px;">Tự Động Gợi Ý</span>
+                                    </div>
+                                    <div style="font-size: 0.82rem; color: #1E293B; margin-bottom: 4px;"><strong>Số tiền:</strong> 120.000 ₫</div>
+                                    <div style="font-size: 0.82rem; color: #1E293B; margin-bottom: 4px;"><strong>Danh mục:</strong> Hoàn tiền thẻ (Cashback)</div>
+                                    <div style="font-size: 0.82rem; color: #1E293B; margin-bottom: 8px;"><strong>Đích nhận:</strong> Thẻ tín dụng VPBank (8888)</div>
+                                    <div style="background: #E8F5E9; border-radius: 6px; padding: 6px; font-size: 0.72rem; color: #2E7D32;">✓ Giảm trừ dư nợ thẻ &bull; Không tính vào tổng thu tháng</div>
+                                </div>
+                                <div class="pm-bottom-nav">
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📊</span>Tổng quan</div>
+                                    <div class="pm-nav-item active"><span class="pm-nav-icon">📑</span>Giao dịch</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">🎯</span>Ngân sách</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📈</span>Tích sản</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">💳</span>Nợ &amp; Thẻ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- ENGLISH -->
                 <div class="lang-en">
-                    <h1>4. Tab 3: Credit Cards, Loans & Debts</h1>
-                    <p>Manage all Credit Cards, Bank Accounts, E-Wallets, Loans, Lending receivables, and Installments.</p>
+                    <h1>📑 4. Transactions Ledger & Inflow/Outflow Management</h1>
+                    <p>The <strong>Transactions Tab</strong> organizes your monetary movements chronologically by day, reinforced with instant full-text lookup and intelligent tagging.</p>
 
-                    <h2>Accounts & Cards List (Tab 1)</h2>
+                    <h2>Instant Entry Floating Action Button (`+` FAB)</h2>
+                    <p>Tapping the floating `+` button exposes the <strong>QuickAddBottomSheet</strong>:</p>
                     <ul>
-                        <li>📌 <strong>Main Account (Account: `****`)</strong>: Prioritized at <strong>Index 0</strong> for primary bank balance management.</li>
-                        <li>💳 <strong>Credit Cards</strong>: Track Available Limit, Current Owed Balance, Statement Day (1-31), and Interest-Free Grace Period. Smart focus ring alerts when payments are due soon.</li>
-                        <li>📱 <strong>E-Wallets & Debit Cards</strong>: Manage MoMo, ZaloPay, ViettelMoney balances.</li>
+                        <li><span class="badge badge-expense">Expense (-)</span>: Enter sum, assign Category (Dining, Transit, Retail, Utilities...), select Funding Source (Main Account, E-Wallet, Cash, or Credit Card).</li>
+                        <li><span class="badge badge-income">Income (+)</span>: Enter sum, select Category (Salary, Bonus, PnL Gains, Cashback...), and designate Destination Wallet/Card.</li>
                     </ul>
 
                     <div class="callout callout-warning">
-                        <div class="callout-title">💡 Multi-Number CSV Guidance</div>
-                        <p>When adding or editing cards/accounts, the <em>"4 digits / Card / Account"</em> field allows comma-separated numbers (e.g., <code>8888, 9999, ****</code>). The wildcard <code>****</code> matches the default main account.</p>
+                        <div class="callout-title">⭐ Credit Card Cashback & Repayment Logic</div>
+                        <p>When logging Income (+) directly into a <strong>Credit Card</strong> tagged under <strong>Cashback</strong>: The engine directly <strong>offsets the credit liability</strong>, and is <strong>EXCLUDED from Monthly Gross Revenue and Net Worth expansion</strong>. This adheres to rigorous financial accounting integrity!</p>
                     </div>
 
-                    <h2>Borrowing / Installments & Lending (Tab 2 & 3)</h2>
-                    <p>Track loans, credit card installment conversions, and receivables from friends. Tap <strong>"Pay Loan"</strong> to log repayments and automatically update underlying account balances.</p>
+                    <h2>Advanced Ledger Capabilities</h2>
+                    <ul>
+                        <li><strong>Smart Confirmation Sheet (`ConfirmCategorySheet`):</strong> Auto-triggered upon receiving bank notifications, suggesting optimal classification while enabling edits to amounts, notes, or payment channels.</li>
+                        <li><strong>Batch Multi-Select:</strong> Long-press any row to activate batch management $\rightarrow$ Batch confirm or delete multiple entries simultaneously.</li>
+                        <li><strong>Search & Filter:</strong> Real-time keyword filtering; quick filters for Expense, Income, or Pending records.</li>
+                        <li><strong>Bank Statement CSV Import (`CsvImportActivity`):</strong> Ingest raw bank exports offline directly into your local database.</li>
+                    </ul>
+
+                    <!-- Mockup UI: Transaction Ledger & Confirm Sheet (English) -->
+                    <div class="mockup-container">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"><div class="phone-island"></div></div>
+                            <div class="phone-screen">
+                                <div class="pm-header">
+                                    <div class="pm-header-title"><span>📑</span> Ledger</div>
+                                    <div class="pm-header-icon">🔍</div>
+                                </div>
+                                <div class="pm-card">
+                                    <div style="font-size: 0.75rem; font-weight: 700; color: #64748B; margin-bottom: 6px;">TODAY &bull; NOV 05</div>
+                                    <div class="pm-list-item">
+                                        <div class="pm-item-left">
+                                            <div class="pm-icon-box" style="background: #FFE4E6;">🍜</div>
+                                            <div>
+                                                <div class="pm-item-title">Beef Noodles Lunch</div>
+                                                <div class="pm-item-sub">MoMo Wallet &bull; 12:30</div>
+                                            </div>
+                                        </div>
+                                        <div class="pm-amount-neg">-55,000 ₫</div>
+                                    </div>
+                                    <div class="pm-list-item">
+                                        <div class="pm-item-left">
+                                            <div class="pm-icon-box" style="background: #E0E7FF;">🎁</div>
+                                            <div>
+                                                <div class="pm-item-title">Card Cashback Rebate</div>
+                                                <div class="pm-item-sub">VPBank StepUp &bull; 09:15</div>
+                                            </div>
+                                        </div>
+                                        <div class="pm-amount-pos">+120,000 ₫</div>
+                                    </div>
+                                </div>
+                                <div class="pm-card" style="background: #F8FAF9; border: 2px dashed #0A6B5C;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                        <span style="font-weight: 800; color: #0A6B5C; font-size: 0.85rem;">CONFIRM CATEGORY</span>
+                                        <span style="font-size: 0.7rem; background: #0A6B5C; color: white; padding: 2px 6px; border-radius: 4px;">Smart Match</span>
+                                    </div>
+                                    <div style="font-size: 0.82rem; color: #1E293B; margin-bottom: 4px;"><strong>Amount:</strong> 120,000 ₫</div>
+                                    <div style="font-size: 0.82rem; color: #1E293B; margin-bottom: 4px;"><strong>Category:</strong> Credit Cashback</div>
+                                    <div style="font-size: 0.82rem; color: #1E293B; margin-bottom: 8px;"><strong>Target:</strong> VPBank Card (8888)</div>
+                                    <div style="background: #E8F5E9; border-radius: 6px; padding: 6px; font-size: 0.72rem; color: #2E7D32;">✓ Offsets card owed balance &bull; Excluded from monthly income</div>
+                                </div>
+                                <div class="pm-bottom-nav">
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📊</span>Overview</div>
+                                    <div class="pm-nav-item active"><span class="pm-nav-icon">📑</span>Ledger</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">🎯</span>Budget</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📈</span>Invest</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">💳</span>Debts</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <!-- SECTION 5: WEALTH & INVESTMENT PORTFOLIO -->
-            <section id="tab-portfolio">
-                <!-- VIETNAMESE -->
-                <div class="lang-vi">
-                    <h1>5. Tab Tích Sản & Danh Mục Đầu Tư</h1>
-                    <p>Theo dõi danh mục tài sản đầu tư đa dạng bao gồm: Bất động sản, Vàng (SJC/PNJ), Chứng khoán, Tiền điện tử (Crypto) và Tiền gửi tiết kiệm.</p>
-
-                    <ul>
-                        <li><strong>Tự động cập nhật giá thị trường:</strong> Nhấn nút Cập nhật giá để refresh giá vàng, chứng khoán và crypto thực tế.</li>
-                        <li><strong>Cấu hình Thuế & Phí:</strong> Cấu hình thuế thu nhập đầu tư và biểu phí giao dịch quỹ giúp tính toán Giá trị thanh lý thực tế (Net Liquidation Value).</li>
-                    </ul>
-                </div>
-
-                <!-- ENGLISH -->
-                <div class="lang-en">
-                    <h1>5. Tab 4: Wealth & Investment Portfolio</h1>
-                    <p>Monitor multi-asset investments including Real Estate, Gold, Stocks/Securities, Crypto, and Fixed Deposits.</p>
-
-                    <ul>
-                        <li><strong>Market Price Refresh:</strong> Tap Refresh Prices to fetch current market rates for gold, stocks, and crypto.</li>
-                        <li><strong>Tax & Fee Schedules:</strong> Configure investment taxes and fund schedules to compute true Net Real Liquidation Value.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- SECTION 6: BUDGETS & ALERTS -->
+            <!-- ==========================================
+                 PHẦN 5: TAB NGÂN SÁCH & CẢNH BÁO
+                 ========================================== -->
             <section id="tab-budget">
                 <!-- VIETNAMESE -->
                 <div class="lang-vi">
-                    <h1>6. Tab Ngân Sách & Cảnh Báo Chi Tiêu</h1>
-                    <p>Thiết lập hạn mức chi tiêu theo tháng cho từng danh mục (Ăn uống, Giải trí, Mua sắm...). Hệ thống sẽ tự động phát thông báo cảnh báo khi chi tiêu vượt quá <strong>80%</strong> và <strong>100%</strong> hạn mức ngân sách.</p>
+                    <h1>🎯 5. Tab Ngân Sách & Hệ Thống Cảnh Báo Bội Chi</h1>
+                    <p>Tab <strong>Ngân sách</strong> giúp bạn chủ động thiết lập kỷ luật tài chính bằng cách đặt hạn mức chi tiêu hàng tháng cho từng hạng mục quan trọng.</p>
+
+                    <h2>Cơ Chế Cảnh Báo 3 Cấp Độ Thông Minh</h2>
+                    <ul>
+                        <li><span class="badge badge-income">&lt; 80% &bull; An Toàn</span>: Chi tiêu đang nằm trong tầm kiểm soát, thanh tiến trình màu xanh lục dịu mắt.</li>
+                        <li><span class="badge badge-warning">80% - 99% &bull; Cảnh Báo</span>: Bạn đã tiêu xài gần chạm trần ngân sách, thanh tiến trình chuyển màu vàng cam kèm biểu tượng cảnh báo ⚠️.</li>
+                        <li><span class="badge badge-expense">&ge; 100% &bull; Báo Động Đỏ</span>: Chi tiêu đã vượt quá ngân sách dự kiến, hệ thống đổi màu đỏ rực và thông báo để bạn điều chỉnh ngay lập tức!</li>
+                    </ul>
+
+                    <h2>Cá Nhân Hóa Chu Kỳ Tính Ngân Sách</h2>
+                    <p>Trong <em>Cài đặt &rarr; Trải nghiệm &amp; Tương tác</em>, bạn có thể tự do thiết lập:</p>
+                    <ul>
+                        <li><strong>Ngày bắt đầu chu kỳ tháng:</strong> Mặc định là ngày 1, hoặc bạn có thể đổi thành ngày nhận lương thực tế của mình (ví dụ ngày 5, 10, 15...).</li>
+                        <li><strong>Thứ đầu tiên trong tuần:</strong> Tùy chọn bắt đầu tuần từ Thứ Hai hoặc Chủ Nhật theo thói quen của bạn.</li>
+                    </ul>
+
+                    <!-- Mockup UI: Budget Screen -->
+                    <div class="mockup-container">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"><div class="phone-island"></div></div>
+                            <div class="phone-screen">
+                                <div class="pm-header">
+                                    <div class="pm-header-title"><span>🎯</span> Ngân Sách Tháng 11</div>
+                                    <div class="pm-header-icon">➕</div>
+                                </div>
+                                <div class="pm-card">
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700;">
+                                        <span>Ăn uống &amp; Cà phê</span>
+                                        <span style="color: #F59E0B;">85% &bull; 4.250k / 5.000k</span>
+                                    </div>
+                                    <div class="pm-progress-bg">
+                                        <div class="pm-progress-bar" style="width: 85%; background: #F59E0B;"></div>
+                                    </div>
+                                    <div style="font-size: 0.72rem; color: #B45309; margin-top: 4px;">⚠️ Sắp chạm trần ngân sách (Còn lại 750.000 ₫)</div>
+                                </div>
+                                <div class="pm-card">
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700;">
+                                        <span>Xăng xe &amp; Di chuyển</span>
+                                        <span style="color: #16A34A;">42% &bull; 630k / 1.500k</span>
+                                    </div>
+                                    <div class="pm-progress-bg">
+                                        <div class="pm-progress-bar" style="width: 42%; background: #16A34A;"></div>
+                                    </div>
+                                    <div style="font-size: 0.72rem; color: #16A34A; margin-top: 4px;">✓ Đang an toàn (Còn lại 870.000 ₫)</div>
+                                </div>
+                                <div class="pm-card">
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700;">
+                                        <span>Mua sắm quần áo</span>
+                                        <span style="color: #DC2626;">112% &bull; 2.240k / 2.000k</span>
+                                    </div>
+                                    <div class="pm-progress-bg">
+                                        <div class="pm-progress-bar" style="width: 100%; background: #DC2626;"></div>
+                                    </div>
+                                    <div style="font-size: 0.72rem; color: #DC2626; margin-top: 4px;">🚨 Bội chi vượt ngân sách 240.000 ₫!</div>
+                                </div>
+                                <div class="pm-bottom-nav">
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📊</span>Tổng quan</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📑</span>Giao dịch</div>
+                                    <div class="pm-nav-item active"><span class="pm-nav-icon">🎯</span>Ngân sách</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📈</span>Tích sản</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">💳</span>Nợ &amp; Thẻ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- ENGLISH -->
                 <div class="lang-en">
-                    <h1>6. Tab 5: Budgets & Expense Alerts</h1>
-                    <p>Set monthly spending caps for individual categories (Food, Entertainment, Shopping...). System automatically pushes alert notifications when reaching <strong>80%</strong> and <strong>100%</strong> budget thresholds.</p>
+                    <h1>🎯 5. Budget Allocation & Overspending Early-Warning</h1>
+                    <p>The <strong>Budget Tab</strong> reinforces spending discipline by enforcing category-specific monthly spending caps.</p>
+
+                    <h2>3-Tier Visual Alert Architecture</h2>
+                    <ul>
+                        <li><span class="badge badge-income">&lt; 80% &bull; Healthy</span>: Outflows are well contained, marked with tranquil green progress bars.</li>
+                        <li><span class="badge badge-warning">80% - 99% &bull; Caution</span>: Nearing category exhaustion, indicated by warning amber progress bars and alert icons ⚠️.</li>
+                        <li><span class="badge badge-expense">&ge; 100% &bull; Critical Overrun</span>: Ceiling exceeded; bars trigger vivid red alert indicators to prompt immediate belt-tightening!</li>
+                    </ul>
+
+                    <h2>Customizable Budget Cycles</h2>
+                    <p>Via <em>Settings &rarr; Appearance &amp; Experience</em>, customize your operational calendar:</p>
+                    <ul>
+                        <li><strong>Month Starting Day:</strong> Defaults to day 1, or align with your actual payday (e.g., day 5, 10, or 25).</li>
+                        <li><strong>First Day of Week:</strong> Select Monday or Sunday to match your personal planning workflow.</li>
+                    </ul>
+
+                    <!-- Mockup UI: Budget Screen (English) -->
+                    <div class="mockup-container">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"><div class="phone-island"></div></div>
+                            <div class="phone-screen">
+                                <div class="pm-header">
+                                    <div class="pm-header-title"><span>🎯</span> November Budgets</div>
+                                    <div class="pm-header-icon">➕</div>
+                                </div>
+                                <div class="pm-card">
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700;">
+                                        <span>Food &amp; Dining</span>
+                                        <span style="color: #F59E0B;">85% &bull; 4,250k / 5,000k</span>
+                                    </div>
+                                    <div class="pm-progress-bg">
+                                        <div class="pm-progress-bar" style="width: 85%; background: #F59E0B;"></div>
+                                    </div>
+                                    <div style="font-size: 0.72rem; color: #B45309; margin-top: 4px;">⚠️ Approaching limit (750,000 ₫ left)</div>
+                                </div>
+                                <div class="pm-card">
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700;">
+                                        <span>Fuel &amp; Transport</span>
+                                        <span style="color: #16A34A;">42% &bull; 630k / 1,500k</span>
+                                    </div>
+                                    <div class="pm-progress-bg">
+                                        <div class="pm-progress-bar" style="width: 42%; background: #16A34A;"></div>
+                                    </div>
+                                    <div style="font-size: 0.72rem; color: #16A34A; margin-top: 4px;">✓ Safe cushion (870,000 ₫ left)</div>
+                                </div>
+                                <div class="pm-card">
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700;">
+                                        <span>Apparel Shopping</span>
+                                        <span style="color: #DC2626;">112% &bull; 2,240k / 2,000k</span>
+                                    </div>
+                                    <div class="pm-progress-bg">
+                                        <div class="pm-progress-bar" style="width: 100%; background: #DC2626;"></div>
+                                    </div>
+                                    <div style="font-size: 0.72rem; color: #DC2626; margin-top: 4px;">🚨 Budget exceeded by 240,000 ₫!</div>
+                                </div>
+                                <div class="pm-bottom-nav">
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📊</span>Overview</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📑</span>Ledger</div>
+                                    <div class="pm-nav-item active"><span class="pm-nav-icon">🎯</span>Budget</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📈</span>Invest</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">💳</span>Debts</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <!-- SECTION 7: OFFLINE NOTIFICATION ENGINE -->
+            <!-- ==========================================
+                 PHẦN 6: TAB TÍCH SẢN & ĐẦU TƯ
+                 ========================================== -->
+            <section id="tab-portfolio">
+                <!-- VIETNAMESE -->
+                <div class="lang-vi">
+                    <h1>📈 6. Tab Tích Sản & Danh Mục Đầu Tư Đa Kênh</h1>
+                    <p>Tab <strong>Tích sản</strong> là nơi bạn theo dõi và quản lý tập trung toàn bộ danh mục tài sản sinh lời của mình, xóa bỏ nỗi lo phải mở hàng loạt ứng dụng riêng lẻ.</p>
+
+                    <h2>6 Nhóm Tài Sản Được Hỗ Trợ Chuyên Sâu</h2>
+                    <ul>
+                        <li>📊 <strong>Cổ phiếu (Stocks):</strong> Theo dõi mã cổ phiếu (FPT, VCB, HPG...), khối lượng, giá mua và giá thị trường.</li>
+                        <li>🏦 <strong>Chứng chỉ quỹ (Mutual Funds):</strong> Đầu tư quỹ mở định kỳ (DCDS, VESAF, VEOF...).</li>
+                        <li>🥇 <strong>Vàng tích trữ:</strong> Vàng miếng SJC, nhẫn tròn trơn 9999, vàng PNJ theo chỉ/lượng.</li>
+                        <li>🏢 <strong>Bất động sản (Real Estate):</strong> Nhà phố, căn hộ, đất nền với định giá thị trường.</li>
+                        <li>🪙 <strong>Tiền mã hóa (Cryptocurrency):</strong> BTC, ETH, SOL, USDT với giá quy đổi thực tế.</li>
+                        <li>🔒 <strong>Tiền gửi tiết kiệm (Fixed Deposits):</strong> Sổ tiết kiệm ngân hàng có kỳ hạn và lãi suất.</li>
+                    </ul>
+
+                    <h2>Tính Năng Tự Động Định Giá & Thuế Phí</h2>
+                    <ul>
+                        <li><strong>Cập nhật giá trực tuyến:</strong> Nhấn nút <em>"Cập nhật giá"</em> để tải giá thị trường mới nhất của Vàng, Cổ phiếu và Crypto.</li>
+                        <li><strong>Giá trị thanh lý thực tế (Net Liquidation Value):</strong> Hỗ trợ thiết lập tỷ lệ Thuế TNCN (ví dụ 0.1% cổ phiếu) và phí giao dịch bán để tính toán số tiền thực thu về tay nếu bạn chốt lời hôm nay!</li>
+                    </ul>
+
+                    <!-- Mockup UI: Investment Portfolio -->
+                    <div class="mockup-container">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"><div class="phone-island"></div></div>
+                            <div class="phone-screen">
+                                <div class="pm-header">
+                                    <div class="pm-header-title"><span>📈</span> Tích Sản Đầu Tư</div>
+                                    <div class="pm-header-icon">🔄</div>
+                                </div>
+                                <div class="pm-card pm-card-emerald">
+                                    <div style="font-size: 0.75rem; opacity: 0.9;">TỔNG GIÁ TRỊ DANH MỤC</div>
+                                    <div style="font-size: 1.5rem; font-weight: 900;">215.800.000 ₫</div>
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-top: 6px;">
+                                        <span>Lãi tạm tính (PnL):</span>
+                                        <span style="font-weight: 800; color: #86EFAC;">+38.400.000 ₫ (+21.6%)</span>
+                                    </div>
+                                </div>
+                                <div class="pm-card">
+                                    <div class="pm-list-item">
+                                        <div class="pm-item-left">
+                                            <div class="pm-icon-box" style="background: #FEF3C7;">🥇</div>
+                                            <div>
+                                                <div class="pm-item-title">Vàng SJC (2 lượng)</div>
+                                                <div class="pm-item-sub">Vốn: 81.000k &bull; Hiện tại: 88.500k</div>
+                                            </div>
+                                        </div>
+                                        <div style="text-align: right;">
+                                            <div style="font-weight: 800; font-size: 0.9rem;">177.000.000 ₫</div>
+                                            <div style="font-size: 0.72rem; color: #16A34A; font-weight: 700;">+15.000k (+9.2%)</div>
+                                        </div>
+                                    </div>
+                                    <div class="pm-list-item">
+                                        <div class="pm-item-left">
+                                            <div class="pm-icon-box" style="background: #E0E7FF;">📊</div>
+                                            <div>
+                                                <div class="pm-item-title">Cổ phiếu FPT (1.000 CP)</div>
+                                                <div class="pm-item-sub">Vốn: 105.000 ₫ &bull; Giá: 138.800 ₫</div>
+                                            </div>
+                                        </div>
+                                        <div style="text-align: right;">
+                                            <div style="font-weight: 800; font-size: 0.9rem;">138.800.000 ₫</div>
+                                            <div style="font-size: 0.72rem; color: #16A34A; font-weight: 700;">+33.800k (+32.2%)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pm-bottom-nav">
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📊</span>Tổng quan</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📑</span>Giao dịch</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">🎯</span>Ngân sách</div>
+                                    <div class="pm-nav-item active"><span class="pm-nav-icon">📈</span>Tích sản</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">💳</span>Nợ &amp; Thẻ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ENGLISH -->
+                <div class="lang-en">
+                    <h1>📈 6. Multi-Channel Wealth & Investment Portfolio</h1>
+                    <p>The <strong>Investment Tab</strong> unites all your yielding holdings into a consolidated balance sheet, liberating you from toggling across fragmented exchange apps.</p>
+
+                    <h2>6 Asset Classes Deeply Integrated</h2>
+                    <ul>
+                        <li>📊 <strong>Equities / Stocks:</strong> Track tickers (FPT, VCB, NVDA, AAPL...), holding units, acquisition cost, and current quotes.</li>
+                        <li>🏦 <strong>Mutual Funds:</strong> Systematize recurring open-ended fund contributions.</li>
+                        <li>🥇 <strong>Physical Gold:</strong> SJC bullion bars, 9999 rings, PNJ gold quantified by weight units.</li>
+                        <li>🏢 <strong>Real Estate:</strong> Properties, land lots, and rental units marked to estimated market values.</li>
+                        <li>🪙 <strong>Cryptocurrency:</strong> BTC, ETH, SOL, USDT with live valuation conversions.</li>
+                        <li>🔒 <strong>Fixed Deposits:</strong> Time deposits with maturity schedules and locked APY interest.</li>
+                    </ul>
+
+                    <h2>Real-Time Revaluation & Tax Clearance</h2>
+                    <ul>
+                        <li><strong>Market Quotes Sync:</strong> Tap <em>"Refresh Prices"</em> to pull updated market rates for Gold, Equities, and Cryptocurrencies.</li>
+                        <li><strong>Net Liquidation Value:</strong> Configure expected capital gains withholding tax and sale fees to know the exact net cash realized if liquidating today!</li>
+                    </ul>
+
+                    <!-- Mockup UI: Investment Portfolio (English) -->
+                    <div class="mockup-container">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"><div class="phone-island"></div></div>
+                            <div class="phone-screen">
+                                <div class="pm-header">
+                                    <div class="pm-header-title"><span>📈</span> Portfolio</div>
+                                    <div class="pm-header-icon">🔄</div>
+                                </div>
+                                <div class="pm-card pm-card-emerald">
+                                    <div style="font-size: 0.75rem; opacity: 0.9;">TOTAL PORTFOLIO VALUE</div>
+                                    <div style="font-size: 1.5rem; font-weight: 900;">215,800,000 ₫</div>
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-top: 6px;">
+                                        <span>Unrealized PnL:</span>
+                                        <span style="font-weight: 800; color: #86EFAC;">+38,400,000 ₫ (+21.6%)</span>
+                                    </div>
+                                </div>
+                                <div class="pm-card">
+                                    <div class="pm-list-item">
+                                        <div class="pm-item-left">
+                                            <div class="pm-icon-box" style="background: #FEF3C7;">🥇</div>
+                                            <div>
+                                                <div class="pm-item-title">SJC Gold (2 taels)</div>
+                                                <div class="pm-item-sub">Cost: 81m &bull; Current: 88.5m</div>
+                                            </div>
+                                        </div>
+                                        <div style="text-align: right;">
+                                            <div style="font-weight: 800; font-size: 0.9rem;">177,000,000 ₫</div>
+                                            <div style="font-size: 0.72rem; color: #16A34A; font-weight: 700;">+15m (+9.2%)</div>
+                                        </div>
+                                    </div>
+                                    <div class="pm-list-item">
+                                        <div class="pm-item-left">
+                                            <div class="pm-icon-box" style="background: #E0E7FF;">📊</div>
+                                            <div>
+                                                <div class="pm-item-title">FPT Shares (1,000 units)</div>
+                                                <div class="pm-item-sub">Cost: 105k &bull; Price: 138.8k</div>
+                                            </div>
+                                        </div>
+                                        <div style="text-align: right;">
+                                            <div style="font-weight: 800; font-size: 0.9rem;">138,800,000 ₫</div>
+                                            <div style="font-size: 0.72rem; color: #16A34A; font-weight: 700;">+33.8m (+32.2%)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pm-bottom-nav">
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📊</span>Overview</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📑</span>Ledger</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">🎯</span>Budget</div>
+                                    <div class="pm-nav-item active"><span class="pm-nav-icon">📈</span>Invest</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">💳</span>Debts</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 PHẦN 7: TAB NỢ & THẺ TÍN DỤNG
+                 ========================================== -->
+            <section id="tab-credit">
+                <!-- VIETNAMESE -->
+                <div class="lang-vi">
+                    <h1>💳 7. Tab Nợ & Quản Lý Thẻ Tín Dụng Toàn Diện</h1>
+                    <p>Tab <strong>Nợ &amp; Tín dụng</strong> giải quyết bài toán phức tạp nhất trong quản lý tài chính hiện đại: tận dụng tối đa thời gian miễn lãi của thẻ tín dụng mà không bao giờ bị rơi vào bẫy lãi suất phạt.</p>
+
+                    <h2>3 Phân Hệ Quản Lý Chuyên Biệt</h2>
+                    <ul>
+                        <li>📌 <strong>Phân hệ 1 &bull; Tài khoản &amp; Thẻ:</strong>
+                            <ul>
+                                <li><strong>Tài khoản chính (STK: `****`):</strong> Được ghim cố định ở vị trí đầu tiên (Index 0) để quản lý số dư khả dụng tức thì.</li>
+                                <li><strong>Thẻ Tín Dụng (Credit Cards):</strong> Giám sát Hạn mức tín dụng, Dư nợ hiện tại, Hạn mức khả dụng còn lại, Ngày chốt sao kê (1-31) và Hạn chót thanh toán. Vòng viền đổi màu cảnh báo khi thẻ sắp đến hạn trả nợ.</li>
+                                <li><strong>Ví điện tử &amp; Thẻ Debit:</strong> Quản lý số dư MoMo, ZaloPay, ViettelMoney, thẻ ghi nợ ngân hàng.</li>
+                            </ul>
+                        </li>
+                        <li>🤝 <strong>Phân hệ 2 &bull; Đi vay &amp; Mua Trả góp 0%:</strong> Theo dõi các khoản vay thế chấp/tín chấp ngân hàng và các đơn chuyển đổi trả góp 0% qua thẻ tín dụng (kỳ hạn còn lại, số tiền phải trả mỗi tháng, ngày đến hạn).</li>
+                        <li>💰 <strong>Phân hệ 3 &bull; Cho vay:</strong> Quản lý các khoản tiền bạn cho người thân, bạn bè vay mượn. Ghi nhận trả nợ từng phần hoặc tất toán dứt điểm.</li>
+                    </ul>
+
+                    <div class="callout callout-warning">
+                        <div class="callout-title">💡 Mẹo Cấu Hình 4 Số Cuối (Hỗ trợ danh sách CSV)</div>
+                        <p>Khi thêm hoặc sửa tài khoản/thẻ, tại ô <em>"4 số cuối thẻ / TK / Ví"</em>, bạn có thể nhập <strong>nhiều số phân cách bởi dấu phẩy</strong> (ví dụ: <code>8888, 9999, ****</code>). Khi có thông báo biến động số dư từ ngân hàng, hệ thống sẽ tự động đối soát và khớp đúng thẻ tương ứng!</p>
+                    </div>
+
+                    <!-- Mockup UI: Credit Card Tab -->
+                    <div class="mockup-container">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"><div class="phone-island"></div></div>
+                            <div class="phone-screen">
+                                <div class="pm-header">
+                                    <div class="pm-header-title"><span>💳</span> Nợ &amp; Thẻ Tín Dụng</div>
+                                    <div class="pm-header-icon">➕</div>
+                                </div>
+                                <!-- Thẻ Credit Card Visual -->
+                                <div class="pm-card" style="background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); color: white; border: none;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <span style="font-weight: 800; font-size: 0.95rem;">VPBank StepUp Visa</span>
+                                        <span style="font-size: 0.72rem; background: #DC2626; padding: 2px 8px; border-radius: 12px; font-weight: 700;">Hạn trả: 15/11</span>
+                                    </div>
+                                    <div style="font-size: 0.72rem; opacity: 0.75; margin-top: 10px;">DƯ NỢ CẦN THANH TOÁN</div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #FCA5A5;">12.450.000 ₫</div>
+                                    <div class="pm-progress-bg" style="background: rgba(255,255,255,0.2);">
+                                        <div class="pm-progress-bar" style="width: 25%; background: #38B2AC;"></div>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.72rem; margin-top: 6px; opacity: 0.9;">
+                                        <span>Đã dùng: 25%</span>
+                                        <span>Khả dụng: 37.550.000 ₫ / 50tr</span>
+                                    </div>
+                                </div>
+                                <!-- Nút trả nợ -->
+                                <div class="pm-card" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 14px;">
+                                    <div>
+                                        <div style="font-weight: 700; font-size: 0.85rem;">Thanh Toán Dư Nợ Thẻ</div>
+                                        <div style="font-size: 0.72rem; color: #64748B;">Trích tiền từ TK chính sang trả thẻ</div>
+                                    </div>
+                                    <button style="background: #0A6B5C; color: white; border: none; padding: 6px 12px; border-radius: 8px; font-size: 0.78rem; font-weight: 700;">Trả nợ ngay</button>
+                                </div>
+                                <div class="pm-bottom-nav">
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📊</span>Tổng quan</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📑</span>Giao dịch</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">🎯</span>Ngân sách</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📈</span>Tích sản</div>
+                                    <div class="pm-nav-item active"><span class="pm-nav-icon">💳</span>Nợ &amp; Thẻ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ENGLISH -->
+                <div class="lang-en">
+                    <h1>💳 7. Credit Cards, Liabilities & Loan Governance</h1>
+                    <p>The <strong>Debts &amp; Credit Tab</strong> masters modern credit dynamics: leveraging 45-55 days of interest-free capital without ever incurring compounding penalty interest.</p>
+
+                    <h2>3 Specialized Management Sub-Tabs</h2>
+                    <ul>
+                        <li>📌 <strong>Sub-Tab 1 &bull; Accounts &amp; Cards:</strong>
+                            <ul>
+                                <li><strong>Main Account (`****`):</strong> Pinned at Index 0 for instantaneous liquid balance oversight.</li>
+                                <li><strong>Credit Cards:</strong> Monitored by Credit Limit, Current Billed Owed Balance, Available Cushion, Statement Billing Date (1-31), and Grace Expiry Due Date. Smart focus rings signal approaching deadlines.</li>
+                                <li><strong>E-Wallets &amp; Debit Cards:</strong> Balances across MoMo, ZaloPay, ViettelMoney, and bank debit accounts.</li>
+                            </ul>
+                        </li>
+                        <li>🤝 <strong>Sub-Tab 2 &bull; Borrowing &amp; 0% Installments:</strong> Track bank mortgages, collateral loans, and 0% card installment plans (remaining tenures, monthly dues, scheduled payment dates).</li>
+                        <li>💰 <strong>Sub-Tab 3 &bull; Lending Receivables:</strong> Maintain receivables lent to associates. Log partial settlements or final discharge.</li>
+                    </ul>
+
+                    <div class="callout callout-warning">
+                        <div class="callout-title">💡 Last 4-Digit CSV Pattern Tip</div>
+                        <p>When configuring accounts/cards, the <em>"Last 4 digits / Card / Account"</em> field accepts <strong>comma-separated values</strong> (e.g., <code>8888, 9999, ****</code>). Upon receiving bank SMS alerts, incoming data is mapped seamlessly to the intended card!</p>
+                    </div>
+
+                    <!-- Mockup UI: Credit Card Tab (English) -->
+                    <div class="mockup-container">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"><div class="phone-island"></div></div>
+                            <div class="phone-screen">
+                                <div class="pm-header">
+                                    <div class="pm-header-title"><span>💳</span> Cards &amp; Debts</div>
+                                    <div class="pm-header-icon">➕</div>
+                                </div>
+                                <div class="pm-card" style="background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); color: white; border: none;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <span style="font-weight: 800; font-size: 0.95rem;">VPBank StepUp Visa</span>
+                                        <span style="font-size: 0.72rem; background: #DC2626; padding: 2px 8px; border-radius: 12px; font-weight: 700;">Due: Nov 15</span>
+                                    </div>
+                                    <div style="font-size: 0.72rem; opacity: 0.75; margin-top: 10px;">OUTSTANDING BILLED BALANCE</div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #FCA5A5;">12,450,000 ₫</div>
+                                    <div class="pm-progress-bg" style="background: rgba(255,255,255,0.2);">
+                                        <div class="pm-progress-bar" style="width: 25%; background: #38B2AC;"></div>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.72rem; margin-top: 6px; opacity: 0.9;">
+                                        <span>Utilized: 25%</span>
+                                        <span>Available: 37,550,000 ₫ / 50m</span>
+                                    </div>
+                                </div>
+                                <div class="pm-card" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 14px;">
+                                    <div>
+                                        <div style="font-weight: 700; font-size: 0.85rem;">Settle Card Dues</div>
+                                        <div style="font-size: 0.72rem; color: #64748B;">Transfer from main account to card</div>
+                                    </div>
+                                    <button style="background: #0A6B5C; color: white; border: none; padding: 6px 12px; border-radius: 8px; font-size: 0.78rem; font-weight: 700;">Pay Now</button>
+                                </div>
+                                <div class="pm-bottom-nav">
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📊</span>Overview</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📑</span>Ledger</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">🎯</span>Budget</div>
+                                    <div class="pm-nav-item"><span class="pm-nav-icon">📈</span>Invest</div>
+                                    <div class="pm-nav-item active"><span class="pm-nav-icon">💳</span>Debts</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 PHẦN 8: BỘ NHẬN DIỆN THÔNG BÁO OFFLINE
+                 ========================================== -->
             <section id="automation">
                 <!-- VIETNAMESE -->
                 <div class="lang-vi">
-                    <h1>7. Tự Động Hóa Đọc Thông Báo Ngân Hàng (Offline 100%)</h1>
-                    <p>MoneyLens tích hợp bộ phân tích cú pháp thông báo 100% Offline, hỗ trợ hơn 16 Ngân hàng & Ví điện tử hàng đầu Việt Nam (Vietcombank, Techcombank, MBBank, VPBank, BIDV, ACB, TPBank, MoMo, ZaloPay...).</p>
+                    <h1>⚡ 8. Động Cơ Bóc Tách Thông Báo Ngân Hàng (100% Offline)</h1>
+                    <p>MoneyLens sở hữu công nghệ bóc tách cú pháp biến động số dư chạy hoàn toàn <strong>cục bộ trên thiết bị</strong> mà không gửi bất kỳ ký tự nào ra bên ngoài Internet.</p>
 
-                    <h2>Action Nhanh Trực Tiếp Trên Thanh Thông Báo (Push Notification)</h2>
-                    <p>Khi ngân hàng bắn thông báo biến động số dư, MoneyLens sẽ tạo một thông báo đẩy trên điện thoại kèm <strong>6 nút Thao Tác Nhanh (Quick Actions)</strong>:</p>
+                    <h2>Hơn 20+ Ngân Hàng & Ví Điện Tử Được Hỗ Trợ Sẵn</h2>
+                    <p>Vietcombank (VCB Digibank), Techcombank, MB Bank, VPBank NEO, BIDV SmartBanking, ACB ONE, TPBank, VIB, OCB, MSB mBank, Sacombank Pay, HDBank, MoMo, ZaloPay, Viettel Money, ShopeePay...</p>
+
+                    <h2>Thông Báo Đẩy Thông Minh Kèm 6 Nút Thao Tác Nhanh (Quick Actions)</h2>
+                    <p>Khi có biến động số dư phát sinh, MoneyLens sẽ gửi ngay một thông báo đẩy trên thanh trạng thái điện thoại với <strong>6 nút hành động tức thì</strong> mà bạn không cần phải mở ứng dụng:</p>
                     <ol>
-                        <li>⚡ <strong>Ghi nhận ngay</strong>: Xác nhận nhanh giao dịch vào sổ.</li>
-                        <li>💳 <strong>Đổi Nguồn tiền</strong>: Toggle chuyển đổi nhanh giữa Nguồn Tiền mặt / Ngân hàng và Thẻ Credit.</li>
-                        <li>📂 <strong>Ăn uống</strong> / 🛒 <strong>Mua sắm</strong> / 🚗 <strong>Di chuyển</strong> / 🏠 <strong>Sinh hoạt</strong>: Chọn nhanh phân loại danh mục chỉ với 1 chạm.</li>
+                        <li>⚡ <strong>Ghi nhận ngay:</strong> Lưu giao dịch vào sổ cái với 1 chạm.</li>
+                        <li>💳 <strong>Đổi Nguồn tiền:</strong> Chuyển đổi nhanh giữa Nguồn Tiền mặt / Ngân hàng và Thẻ Credit Card.</li>
+                        <li>🍜 <strong>Ăn uống:</strong> Gán nhanh danh mục ẩm thực.</li>
+                        <li>🛒 <strong>Mua sắm:</strong> Gán nhanh danh mục shopping.</li>
+                        <li>🚗 <strong>Di chuyển:</strong> Gán nhanh danh mục xăng xe, grab, taxi.</li>
+                        <li>🏠 <strong>Sinh hoạt:</strong> Gán nhanh tiền điện, nước, internet.</li>
                     </ol>
+
+                    <!-- Mockup UI: Push Notification Tray -->
+                    <div class="mockup-container">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"><div class="phone-island"></div></div>
+                            <div class="phone-screen" style="justify-content: center;">
+                                <div style="text-align: center; color: #64748B; font-size: 0.75rem; margin-bottom: 8px;">MÔ PHỎNG THANH THÔNG BÁO ANDROID</div>
+                                <div class="pm-push-notif">
+                                    <div class="pm-push-header">
+                                        <span style="font-weight: 700; color: #0A6B5C;">🔍 MoneyLens &bull; Bóc Tách Số Dư</span>
+                                        <span>Vừa xong</span>
+                                    </div>
+                                    <div style="font-weight: 800; font-size: 0.92rem; color: #1E293B;">Chi tiêu: -85.000 ₫ (Techcombank)</div>
+                                    <div style="font-size: 0.75rem; color: #64748B; margin-top: 2px;">ND: Highlands Coffee Vo Van Tan &bull; Thẻ ****1234</div>
+                                    <div class="pm-push-actions">
+                                        <div class="pm-push-btn primary">⚡ Ghi nhận</div>
+                                        <div class="pm-push-btn">💳 Đổi Nguồn</div>
+                                        <div class="pm-push-btn">🍜 Ăn uống</div>
+                                        <div class="pm-push-btn">🛒 Mua sắm</div>
+                                        <div class="pm-push-btn">🚗 Di chuyển</div>
+                                        <div class="pm-push-btn">🏠 Sinh hoạt</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- ENGLISH -->
                 <div class="lang-en">
-                    <h1>7. 100% Offline Bank Notification Engine</h1>
-                    <p>MoneyLens includes a 100% offline parser supporting 16+ top Vietnamese banks & e-wallets (VCB, TCB, MB, VPB, BIDV, ACB, TPB, MoMo, ZaloPay...).</p>
+                    <h1>⚡ 8. 100% Offline Bank Notification Parser</h1>
+                    <p>MoneyLens features a deterministic regex notification parser executing <strong>strictly on your local device</strong> with zero data transmission over the Internet.</p>
 
-                    <h2>Smart Notification Quick Actions</h2>
-                    <p>When a bank notification arrives, MoneyLens generates a push notification with <strong>6 Quick Action buttons</strong> directly in the Android status bar:</p>
+                    <h2>20+ Leading Financial Institutions Supported</h2>
+                    <p>Vietcombank, Techcombank, MB Bank, VPBank NEO, BIDV, ACB, TPBank, VIB, OCB, MSB, Sacombank, HDBank, MoMo, ZaloPay, Viettel Money, ShopeePay...</p>
+
+                    <h2>Notification Tray with 6 Instant Quick Actions</h2>
+                    <p>When an account SMS or push alert lands, MoneyLens surfaces an Android status bar notification equipped with <strong>6 instant action triggers</strong> without needing to open the app:</p>
                     <ol>
-                        <li>⚡ <strong>Quick Confirm</strong>: Instant one-tap logging.</li>
-                        <li>💳 <strong>Toggle Payment Source</strong>: Switch source between Bank Account / Cash and Credit Card.</li>
-                        <li>📂 <strong>Food</strong> / 🛒 <strong>Shopping</strong> / 🚗 <strong>Transport</strong> / 🏠 <strong>Bills</strong>: Categorize instantly with a single tap.</li>
+                        <li>⚡ <strong>Quick Confirm:</strong> Immediate one-tap ledger recording.</li>
+                        <li>💳 <strong>Toggle Funding Source:</strong> Switch between Bank Cash / Debit and Credit Card.</li>
+                        <li>🍜 <strong>Dining:</strong> Tag to culinary meals instantly.</li>
+                        <li>🛒 <strong>Retail:</strong> Tag to shopping purchases.</li>
+                        <li>🚗 <strong>Transit:</strong> Tag to fuel, ride-hailing, transit.</li>
+                        <li>🏠 <strong>Bills:</strong> Tag to electricity, water, internet utilities.</li>
                     </ol>
+
+                    <!-- Mockup UI: Push Notification Tray (English) -->
+                    <div class="mockup-container">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"><div class="phone-island"></div></div>
+                            <div class="phone-screen" style="justify-content: center;">
+                                <div style="text-align: center; color: #64748B; font-size: 0.75rem; margin-bottom: 8px;">ANDROID NOTIFICATION TRAY PREVIEW</div>
+                                <div class="pm-push-notif">
+                                    <div class="pm-push-header">
+                                        <span style="font-weight: 700; color: #0A6B5C;">🔍 MoneyLens &bull; Auto-Parser</span>
+                                        <span>Just now</span>
+                                    </div>
+                                    <div style="font-weight: 800; font-size: 0.92rem; color: #1E293B;">Expense: -85,000 ₫ (Techcombank)</div>
+                                    <div style="font-size: 0.75rem; color: #64748B; margin-top: 2px;">Highlands Coffee &bull; Card ****1234</div>
+                                    <div class="pm-push-actions">
+                                        <div class="pm-push-btn primary">⚡ Log Now</div>
+                                        <div class="pm-push-btn">💳 Switch Src</div>
+                                        <div class="pm-push-btn">🍜 Dining</div>
+                                        <div class="pm-push-btn">🛒 Shopping</div>
+                                        <div class="pm-push-btn">🚗 Transit</div>
+                                        <div class="pm-push-btn">🏠 Bills</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <!-- SECTION 8: SETTINGS & SECURITY -->
+            <!-- ==========================================
+                 PHẦN 9: CÀI ĐẶT, BẢO MẬT & SAO LƯU
+                 ========================================== -->
             <section id="settings">
                 <!-- VIETNAMESE -->
                 <div class="lang-vi">
-                    <h1>8. Cài Đặt, Bảo Mật & Sao Lưu Dữ Liệu</h1>
+                    <h1>⚙️ 9. Cài Đặt, Bảo Mật &amp; Sao Lưu Dữ Liệu</h1>
 
-                    <h2>Bảo mật Mã PIN & Vân tay / Khuôn mặt</h2>
-                    <p>Vào Cài đặt $\rightarrow$ Bật Mã PIN 6 số hoặc Mở khóa Sinh trắc học. Khi thoát app ra ngoài quá thời gian chờ, MoneyLens sẽ tự động khóa ứng dụng để bảo vệ thông tin.</p>
+                    <h2>Bảo Mật Mã PIN & Sinh Trắc Học</h2>
+                    <p>Bật mã PIN 6 số hoặc Mở khóa Sinh trắc học trong <em>Cài đặt &rarr; Bảo mật &amp; Quyền riêng tư</em>. Khi ứng dụng chạy nền quá thời gian chờ, hệ thống sẽ tự động khóa để bảo vệ thông tin tài chính của bạn khỏi người khác.</p>
 
-                    <h2>Tối ưu hóa Bàn phím Mềm (Smart Soft Keyboard)</h2>
-                    <p>Tất cả các ô nhập liệu trong ứng dụng đã được tối ưu: Khi bạn gõ xong và nhấn phím **Hoàn thành / √ / Search / Enter** trên bàn phím mềm, bàn phím sẽ **tự động thu gọn ngay lập tức** mà không cần nhấn phím Back vật lý.</p>
-
-                    <h2>Cơ chế Xóa Dữ Liệu Thông Minh</h2>
+                    <h2>Cơ Chế Bảo Vệ Dữ Liệu Khi Xóa</h2>
                     <ul>
-                        <li><strong>Khi ở chế độ Dữ liệu Demo (Mẫu):</strong> Nhấn <em>"Xóa toàn bộ dữ liệu"</em> sẽ **thực hiện xóa ngay lập tức** mà không hỏi mật khẩu PIN hay Vân tay.</li>
-                        <li><strong>Khi ở chế độ Dữ liệu Thực:</strong> Yêu cầu xác thực Mã PIN hoặc Sinh trắc học nghiêm ngặt để bảo vệ sổ thu chi thực của bạn.</li>
+                        <li><strong>Khi ở chế độ Dữ liệu Mẫu (Demo):</strong> Bấm <em>"Xóa toàn bộ dữ liệu"</em> sẽ **thực hiện xóa ngay lập tức** mà không đòi hỏi nhập mã PIN hay quét vân tay, giúp bạn làm sạch app nhanh chóng.</li>
+                        <li><strong>Khi ở chế độ Dữ liệu Thật của Người Dùng:</strong> Bắt buộc xác thực Mã PIN hoặc Sinh trắc học nghiêm ngặt để đảm bảo tuyệt đối không bị xóa nhầm dữ liệu quan trọng!</li>
                     </ul>
 
-                    <h2>Sao lưu & Khôi phục (JSON Backup)</h2>
-                    <p>Xuất file JSON sao lưu dự phòng lưu trữ an toàn hoặc khôi phục dữ liệu nguyên bản trên thiết bị mới mà không cần kết nối mạng.</p>
+                    <h2>Cá Nhân Hóa Giao Diện & Bố Cục Tông Màu</h2>
+                    <ul>
+                        <li><strong>Bảng màu chủ đạo:</strong> Màu Emerald (Ngọc lục bảo - Mặc định), Sapphire, Amethyst, Sunset, Forest... Bố cục danh sách chọn màu được thiết kế dạng hàng ngang vuốt mượt mà với kích thước tối ưu theo nội dung.</li>
+                        <li><strong>Chế độ Sáng / Tối:</strong> Hỗ trợ Giao diện Sáng (Light Mode), Giao diện Tối (Dark Mode) hoặc Tự động theo Hệ thống.</li>
+                        <li><strong>Đa ngôn ngữ:</strong> Dễ dàng chuyển đổi giữa 🇻🇳 Tiếng Việt và 🇬🇧 English bất kỳ lúc nào.</li>
+                    </ul>
+
+                    <h2>Sao Lưu & Khôi Phục (Offline JSON Backup)</h2>
+                    <p>Bạn có thể xuất file sao lưu JSON bất kỳ lúc nào để lưu trữ vào Google Drive, thẻ nhớ hoặc gửi sang điện thoại mới để khôi phục toàn vẹn dữ liệu trong vài giây.</p>
                 </div>
 
                 <!-- ENGLISH -->
                 <div class="lang-en">
-                    <h1>8. Settings, Security & Backup</h1>
+                    <h1>⚙️ 9. Settings, Security &amp; Data Safeguards</h1>
 
-                    <h2>PIN & Biometric Security</h2>
-                    <p>Navigate to Settings $\rightarrow$ Enable 6-digit PIN or Biometric Unlock. When left inactive in background, MoneyLens automatically locks the app to protect your finances.</p>
+                    <h2>PIN &amp; Biometric Security Engine</h2>
+                    <p>Toggle 6-digit PIN or Biometric unlock via <em>Settings &rarr; Security &amp; Privacy</em>. When backgrounded past the grace timeout, MoneyLens auto-locks to secure your finances from unauthorized access.</p>
 
-                    <h2>Smart Soft Keyboard Dismissal</h2>
-                    <p>All text fields are optimized: Pressing **Done / √ / Search / Enter** on the soft keyboard **automatically dismisses the keyboard instantly** without needing to press the physical back button.</p>
-
-                    <h2>Smart Data Deletion Behavior</h2>
+                    <h2>Context-Aware Data Deletion Safeguards</h2>
                     <ul>
-                        <li><strong>When in Demo Data Mode:</strong> Tapping <em>"Delete All Data"</em> **clears data immediately** without asking for PIN or Biometrics.</li>
-                        <li><strong>When in Real User Data Mode:</strong> Strictly requires PIN or Biometric verification to safeguard your real finances.</li>
+                        <li><strong>In Demo Mode:</strong> Tapping <em>"Clear All Data"</em> **executes immediately** without requesting PIN or biometrics, enabling instant sandbox reset.</li>
+                        <li><strong>In Genuine User Mode:</strong> Strictly challenges for PIN or Biometric verification to prevent inadvertent ledger erasure!</li>
                     </ul>
 
-                    <h2>Backup & Restore (JSON Backup)</h2>
-                    <p>Export safely to offline JSON backup files or restore your complete database on a new device with zero internet connectivity.</p>
+                    <h2>Theme Palettes &amp; UX Polish</h2>
+                    <ul>
+                        <li><strong>Theme Accent Palette:</strong> Emerald (Default), Sapphire, Amethyst, Sunset, Forest... Organized in a horizontal swipeable row with content-optimized chip bounds.</li>
+                        <li><strong>Dark / Light Appearance:</strong> Full support for Dark Theme, Light Theme, or System Default follower.</li>
+                        <li><strong>Bilingual Fluency:</strong> Seamlessly toggle between 🇻🇳 Vietnamese and 🇬🇧 English anytime.</li>
+                    </ul>
+
+                    <h2>Offline JSON Backup &amp; Restore</h2>
+                    <p>Export encrypted offline JSON snapshots to Google Drive, SD storage, or peer devices to restore your complete financial ledger in seconds.</p>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 PHẦN 10: HỎI ĐÁP & XỬ LÝ SỰ CỐ (FAQ)
+                 ========================================== -->
+            <section id="faq">
+                <!-- VIETNAMESE -->
+                <div class="lang-vi">
+                    <h1>❓ 10. Câu Hỏi Thường Gặp & Xử Lý Sự Cố (FAQ)</h1>
+
+                    <h3>1. Tôi quên mã PIN thì làm thế nào?</h3>
+                    <p>Nếu bạn đã kích hoạt <strong>Mở khóa Sinh trắc học</strong> (Vân tay hoặc Face Unlock), bạn có thể dùng vân tay để mở khóa ứng dụng, sau đó vào <em>Cài đặt &rarr; Bảo mật &rarr; Đặt lại mã PIN</em>. Nếu chưa bật sinh trắc học, vì lý do bảo mật Local-First (không lưu mật khẩu trên máy chủ), bạn cần xóa ứng dụng và cài lại (hoặc khôi phục từ bản sao lưu JSON trước đó).</p>
+
+                    <h3>2. Tại sao thông báo ngân hàng không được tự động nhận diện?</h3>
+                    <ul>
+                        <li>Kiểm tra xem bạn đã cấp quyền <strong>Truy cập thông báo</strong> cho MoneyLens trong Cài đặt hệ thống Android chưa.</li>
+                        <li>Một số dòng điện thoại (Xiaomi, Oppo, Vivo) có tính năng tối ưu pin khắc nghiệt, vui lòng chọn <em>"Không tối ưu pin" (Unrestricted Battery)</em> và bật <em>"Tự khởi chạy" (Autostart)</em> cho MoneyLens.</li>
+                        <li>Đảm bảo bạn đã thêm 4 số cuối tài khoản/thẻ tương ứng vào mục <em>Tín dụng &amp; Thẻ</em>.</li>
+                    </ul>
+
+                    <h3>3. Tại sao hoàn tiền (Cashback) vào thẻ tín dụng không tăng tổng thu nhập tháng?</h3>
+                    <p>Đây là nguyên lý kế toán thông minh của MoneyLens: Khoản tiền hoàn của thẻ tín dụng thực chất là việc ngân hàng <strong>giảm trừ số nợ bạn đang thiếu họ</strong>. Nếu cộng số tiền này vào Thu nhập tháng, doanh thu thực tế của bạn sẽ bị phồng ảo (double counting). Số dư nợ thẻ của bạn đã được giảm chính xác, giúp tài sản ròng phản ánh trung thực.</p>
+                </div>
+
+                <!-- ENGLISH -->
+                <div class="lang-en">
+                    <h1>❓ 10. Frequently Asked Questions (FAQ)</h1>
+
+                    <h3>1. What if I forget my 6-digit security PIN?</h3>
+                    <p>If you configured <strong>Biometric Authentication</strong> (Fingerprint or Face Unlock), authenticate using your biometrics, then navigate to <em>Settings &rarr; Security &rarr; Reset PIN</em>. If biometrics were disabled, in strict adherence to Local-First privacy, no central server holds your key; you must reinstall the app and restore from your JSON backup.</p>
+
+                    <h3>2. Why are my bank notifications not auto-logging?</h3>
+                    <ul>
+                        <li>Confirm that <strong>Notification Access</strong> permission is granted to MoneyLens in Android System Settings.</li>
+                        <li>Certain OEM battery managers (Xiaomi MIUI, Oppo ColorOS, Vivo) kill background services: set MoneyLens battery usage to <em>"Unrestricted"</em> and permit <em>"Autostart"</em>.</li>
+                        <li>Ensure the matching last 4 digits are configured under your <em>Credit &amp; Debts</em> card profile.</li>
+                    </ul>
+
+                    <h3>3. Why doesn't credit card cashback expand my Monthly Income?</h3>
+                    <p>This follows disciplined financial accounting: card cashback is a direct <strong>liability credit rebate</strong> reducing what you owe the bank. Counting it as gross income creates double-counting distortions. Your card debt is reduced directly, keeping your true Net Worth mathematically sound.</p>
                 </div>
             </section>
 
         </main>
     </div>
 
-    <!-- JavaScript for Bilingual Switch & Active Menu Highlight -->
+    <!-- SCRIPT FOR BILINGUAL TOGGLE & SCROLLSPY -->
     <script>
         function setLanguage(lang) {
             const btnVi = document.getElementById('btn-vi');
@@ -676,7 +2082,7 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 120) {
+                if (pageYOffset >= sectionTop - 140) {
                     current = section.getAttribute('id');
                 }
             });
